@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "689331484979",
+    "project_id": "aplicativo-gcm",
+    "storage_bucket": "aplicativo-gcm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689331484979:android:c72af8f86434dd0e742646",
+        "android_client_info": {
+          "package_name": "com.example.gcm_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689331484979-l8o6o7tq17r8t0drj6nl6s1n31m7p34o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDwoP19UtgD6YOuV2WdKgyNVBFEO6-SRc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689331484979-l8o6o7tq17r8t0drj6nl6s1n31m7p34o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
