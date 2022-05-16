@@ -91,8 +91,6 @@ class _CadastroState extends State<Cadastro> {
   }
 
   _cadastrarUsuario(Usuario usuario) {
-    WidgetsFlutterBinding.ensureInitialized();
-    Firebase.initializeApp();
     FirebaseAuth auth = FirebaseAuth.instance;
     FirebaseFirestore db = FirebaseFirestore.instance;
     auth

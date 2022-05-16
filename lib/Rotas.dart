@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gcm_app/Cadastro.dart';
-import 'package:gcm_app/PainelComandante.dart';
-import 'package:gcm_app/PainelGuarda.dart';
+import 'package:gcm_app/telas/Cadastro.dart';
+import 'package:gcm_app/telas/PainelComandante.dart';
+import 'package:gcm_app/telas/PainelGuarda.dart';
 import 'package:gcm_app/telas/Home.dart';
 
 class Rotas {
