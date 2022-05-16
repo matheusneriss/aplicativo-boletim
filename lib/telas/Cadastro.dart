@@ -110,6 +110,8 @@ class _CadastroState extends State<Cadastro> {
               context, "/painel-comandante", (_) => false);
           break;
       }
+    }).catchError((error){
+      _mensagemErro = "Erro ao cadastrar usuário, verifique os campos e tente novamente!";
     });
   }
 
