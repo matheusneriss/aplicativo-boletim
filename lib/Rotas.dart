@@ -3,6 +3,7 @@ import 'package:gcm_app/telas/Cadastro.dart';
 import 'package:gcm_app/telas/PainelComandante.dart';
 import 'package:gcm_app/telas/PainelGuarda.dart';
 import 'package:gcm_app/telas/Home.dart';
+import 'package:gcm_app/telas/Recuperar_senha.dart';
 
 class Rotas {
   static Route<dynamic>? gerarRotas(RouteSettings settings) {
@@ -15,6 +16,8 @@ class Rotas {
         return MaterialPageRoute(builder: (_) => PainelGuarda());
       case "/painel-comandante":
         return MaterialPageRoute(builder: (_) => PainelComandante());
+      case "/recuperarsenha":
+        return MaterialPageRoute(builder: (_) => ResetScreen());
       default:
         _erroRota();
     }

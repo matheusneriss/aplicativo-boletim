@@ -121,6 +121,23 @@ class _HomeState extends State<Home> {
                 Center(
                   child: GestureDetector(
                     child: Text(
+                      "Esqueceu sua senha?",
+                      style: TextStyle(
+                        decoration:  TextDecoration.underline,
+                        color: Color.fromARGB(255, 6, 134, 49),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    onTap: (){
+                      Navigator.pushNamed(context, "/recuperarsenha");
+                    },
+                  ),
+                ),
+                Padding(padding: EdgeInsets.all(5)),
+                Center(
+                  child: GestureDetector(
+                    child: Text(
                       "Não tem conta? cadastre-se!",
                       style: TextStyle(color: Colors.white),
                     ),
