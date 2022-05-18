@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
+
 
 class Meusdados extends StatefulWidget {
   const Meusdados({Key? key}) : super(key: key);
@@ -10,6 +13,24 @@ class Meusdados extends StatefulWidget {
 class _MeusdadosState extends State<Meusdados> {
 
   TextEditingController _controllerNome = TextEditingController();
+  final ImagePicker _picker = ImagePicker();
+  XFile? _imagem;
+
+  Future _recuperarImagem(String origemImagem) async {
+      XFile? imagemSelecionada;
+      switch( origemImagem ){
+        case "camera":
+          imagemSelecionada = (await _picker.pickImage(source: ImageSource.camera));
+          break;
+        case "galeria":
+          imagemSelecionada = (await _picker.pickImage(source: ImageSource.gallery));
+          break;
+      }
+      setState(() {
+        _imagem = imagemSelecionada;
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,13 +56,17 @@ class _MeusdadosState extends State<Meusdados> {
                           child: Text(
                             "Câmera",
                           ),
-                      onPressed: (){},
+                      onPressed: (){
+                        _recuperarImagem("camera");
+                      },
                       ),
                       FlatButton(
                         child: Text(
                           "Galeria",
                         ),
-                        onPressed: (){},
+                        onPressed: (){
+                          _recuperarImagem("galeria");
+                        },
                       ),
                     ],
                   ),
