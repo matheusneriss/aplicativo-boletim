@@ -8,6 +8,8 @@ class Meusdados extends StatefulWidget {
 }
 
 class _MeusdadosState extends State<Meusdados> {
+
+  TextEditingController _controllerNome = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +44,41 @@ class _MeusdadosState extends State<Meusdados> {
                         onPressed: (){},
                       ),
                     ],
-                  )
+                  ),
+                  Padding(
+                      padding:EdgeInsets.only(bottom: 8),
+                      child: TextField(
+                        controller: _controllerNome,
+                        autofocus: true,
+                        keyboardType: TextInputType.text,
+                        style: TextStyle(
+                          fontSize: 20),
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                            hintText: "Nome",
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(32))
+                            )
+                          ),
+                        ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 16, bottom: 10),
+                    child: RaisedButton(
+                      child: Text(
+                        "Salvar",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                      color: Color.fromARGB(255, 6, 134, 49),
+                      padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32)
+                      ),
+                      onPressed: () {
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
