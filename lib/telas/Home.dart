@@ -118,6 +118,7 @@ class _HomeState extends State<Home> {
                     },
                   ),
                 ),
+                Padding(padding: EdgeInsets.all(5)),
                 Center(
                   child: GestureDetector(
                     child: Text(
@@ -134,7 +135,7 @@ class _HomeState extends State<Home> {
                     },
                   ),
                 ),
-                Padding(padding: EdgeInsets.all(5)),
+                Padding(padding: EdgeInsets.all(7)),
                 Center(
                   child: GestureDetector(
                     child: Text(
