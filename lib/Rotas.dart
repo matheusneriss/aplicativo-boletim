@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gcm_app/telas/Cadastro.dart';
+import 'package:gcm_app/telas/MeusDados.dart';
 import 'package:gcm_app/telas/PainelComandante.dart';
 import 'package:gcm_app/telas/PainelGuarda.dart';
 import 'package:gcm_app/telas/Home.dart';
@@ -18,6 +19,8 @@ class Rotas {
         return MaterialPageRoute(builder: (_) => PainelComandante());
       case "/recuperarsenha":
         return MaterialPageRoute(builder: (_) => ResetScreen());
+      case "/meusdados":
+        return MaterialPageRoute(builder: (_) => Meusdados());
       default:
         _erroRota();
     }
