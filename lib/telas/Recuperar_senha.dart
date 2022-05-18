@@ -19,7 +19,7 @@ class _ResetScreenState extends State<ResetScreen> {
         title: Text('Redefinir senha'),),
       body: Container(
         padding: EdgeInsets.only(
-          top: 60,
+          top: 30,
           left: 40,
           right:  40
         ),
@@ -41,12 +41,13 @@ class _ResetScreenState extends State<ResetScreen> {
             ),
               textAlign: TextAlign.center,
             ),
+            Padding(padding: EdgeInsets.all(10)),
             Text("Por favor, informe o E-mail associado a sua conta que enviaremos um link para o mesmo com as instruções para restauração da sua senha.",
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w400,
             ),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.justify,
             ),
             SizedBox(
               height: 10,
@@ -62,11 +63,16 @@ class _ResetScreenState extends State<ResetScreen> {
             });
           },
         ),
+      Padding(padding: EdgeInsets.all(10)),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           RaisedButton(
-            child: Text('Send Request'),
+            child: Text('Enviar solicitação',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20
+            ),),
             onPressed: () {
               auth.sendPasswordResetEmail(email: _controllerEmail.text);
               Navigator.of(context).pop();
