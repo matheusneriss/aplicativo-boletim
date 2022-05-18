@@ -10,6 +10,9 @@ class PainelGuarda extends StatefulWidget {
 
 class _PainelGuardaState extends State<PainelGuarda> {
 
+  TextEditingController _controllerNome = TextEditingController();
+  TextEditingController _controllerEmail = TextEditingController();
+
   List<String> itensMenu = [
     "Configurações", "Deslogar"
   ];
@@ -52,7 +55,26 @@ class _PainelGuardaState extends State<PainelGuarda> {
           )
         ],
       ),
-      body: Container(),
+      drawer: new Drawer(
+        child: ListView(
+          children: [
+            new UserAccountsDrawerHeader(
+                accountName: new Text(
+                   "Matheus Neris Xavier Da Rocha"
+                ),
+                accountEmail: new Text(
+                    "matheusneris2011@gmail.com"
+                ),
+              currentAccountPicture: new CircleAvatar(
+                backgroundImage: new NetworkImage(
+                  'https://uploads.metropoles.com/wp-content/uploads/2022/05/09154316/foto-Neymar-PSG-08052022-600x400.jpg',
+                ),
+              ),
+            ),
+            ]
+        ),
+      ),
+      //body: Container(),
     );
   }
 }
