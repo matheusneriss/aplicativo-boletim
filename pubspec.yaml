@@ -40,6 +40,8 @@ dependencies:
   flutterfire_cli: ^0.2.2
   email_validator: ^2.0.1
   image_picker: ^0.8.5+3
+  firebase_storage: ^10.2.16
+
 
 
 
