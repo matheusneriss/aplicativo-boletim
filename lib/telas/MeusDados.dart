@@ -3,6 +3,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io' as i;
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Meusdados extends StatefulWidget {
   const Meusdados({Key? key}) : super(key: key);
@@ -70,11 +71,26 @@ class _MeusdadosState extends State<Meusdados> {
 
   Future _recuperarUrlImagem(TaskSnapshot snapshot) async {
     String url = await snapshot.ref.getDownloadURL();
+    _atualizarUrlImagemFirestore(url);
+
     setState(() {
       _urlImagemRecuperada = url;
       print("erro" + url);
     });
   }
+
+  _atualizarUrlImagemFirestore(String url){
+    FirebaseFirestore db = FirebaseFirestore.instance;
+
+    Map<String,dynamic> dadosAtualizar ={
+      "urlImagem" : url
+    };
+
+    db.collection("Guardas")
+    .doc(_idUserLogado)
+    .update(dadosAtualizar);
+  }
+
 
   _recuperarDadosUsuario() async {
     FirebaseAuth auth = FirebaseAuth.instance;
