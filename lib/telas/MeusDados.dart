@@ -92,10 +92,24 @@ class _MeusdadosState extends State<Meusdados> {
   }
 
 
+
   _recuperarDadosUsuario() async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User userLogado = await auth.currentUser!;
+    FirebaseFirestore db = FirebaseFirestore.instance;
     _idUserLogado = userLogado.uid;
+
+    User? usuarioLogado = await auth.currentUser;
+    DocumentSnapshot snapshot = await db.collection("Guardas").doc(usuarioLogado!.uid!).get();
+
+    dynamic dados = snapshot.data();
+    _controllerNome.text = dados["nome"];
+
+    setState(() {
+
+      _urlImagemRecuperada = "${(dados as dynamic)["urlImagem"]}";
+    });
+
   }
 
   @override
