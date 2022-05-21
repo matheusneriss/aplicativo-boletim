@@ -132,7 +132,7 @@ class _MeusdadosState extends State<Meusdados> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Configurações"),),
+      appBar: AppBar(title: Text("Meus Dados"),),
       body: Container(
         padding: EdgeInsets.all(16),
         child: Center(
