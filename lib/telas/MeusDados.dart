@@ -91,6 +91,17 @@ class _MeusdadosState extends State<Meusdados> {
     .update(dadosAtualizar);
   }
 
+  _atualizarNomeFirestore(){
+    String nome = _controllerNome.text;
+    FirebaseFirestore db = FirebaseFirestore.instance;
+    Map<String,dynamic> dadosAtualizar ={
+      "nome" : nome
+    };
+
+    db.collection("Guardas")
+        .doc(_idUserLogado)
+        .update(dadosAtualizar);
+  }
 
 
   _recuperarDadosUsuario() async {
@@ -128,8 +139,11 @@ class _MeusdadosState extends State<Meusdados> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                _subindoImagem ? CircularProgressIndicator()
-                    : Container(),
+                Container(
+                  padding: EdgeInsets.all(16),
+                  child: _subindoImagem ? CircularProgressIndicator()
+                      : Container(),
+                ),
                 CircleAvatar(
                     radius: 100,
                     backgroundColor: Colors.grey,
@@ -180,6 +194,7 @@ class _MeusdadosState extends State<Meusdados> {
                       borderRadius: BorderRadius.circular(32),
                     ),
                     onPressed: () {
+                      _atualizarNomeFirestore();
                     },
                   ),
                 ),
