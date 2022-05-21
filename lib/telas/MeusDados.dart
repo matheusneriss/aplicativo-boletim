@@ -15,6 +15,12 @@ class Meusdados extends StatefulWidget {
 class _MeusdadosState extends State<Meusdados> {
 
   TextEditingController _controllerNome = TextEditingController();
+  TextEditingController _controllerCpf = TextEditingController();
+  TextEditingController _controllerCelular = TextEditingController();
+  TextEditingController _controllerMatricula = TextEditingController();
+  TextEditingController _controllerDatanascimento = TextEditingController();
+  TextEditingController _controllerEmail = TextEditingController();
+
   final ImagePicker _picker = ImagePicker();
   late XFile _imagem;
   late String _idUserLogado;
@@ -91,11 +97,21 @@ class _MeusdadosState extends State<Meusdados> {
     .update(dadosAtualizar);
   }
 
-  _atualizarNomeFirestore(){
+  _atualizarDadosFirestore(){
     String nome = _controllerNome.text;
+    String cpf = _controllerCpf.text;
+    String celular = _controllerCelular.text;
+    String matricula = _controllerMatricula.text;
+    String datanascimento = _controllerDatanascimento.text;
+    String email = _controllerEmail.text;
     FirebaseFirestore db = FirebaseFirestore.instance;
     Map<String,dynamic> dadosAtualizar ={
-      "nome" : nome
+      "nome" : nome,
+      "cpf" : cpf,
+      "celular" : celular,
+      "matricula" : matricula,
+      "data de nascimento" : datanascimento,
+      "email" : email
     };
 
     db.collection("Guardas")
@@ -115,9 +131,13 @@ class _MeusdadosState extends State<Meusdados> {
 
     dynamic dados = snapshot.data();
     _controllerNome.text = dados["nome"];
+    _controllerCpf.text = dados["cpf"];
+    _controllerCelular.text = dados["celular"];
+    _controllerMatricula.text = dados["matricula"];
+    _controllerDatanascimento.text = dados["data de nascimento"];
+    _controllerEmail.text =dados["email"];
 
     setState(() {
-
       _urlImagemRecuperada = "${(dados as dynamic)["urlImagem"]}";
     });
 
@@ -172,11 +192,101 @@ class _MeusdadosState extends State<Meusdados> {
                     style: TextStyle(fontSize: 20),
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                      hintText: "Nome",
+                      labelText: "Nome",
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(32),
+                        borderRadius: BorderRadius.circular(3),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 8),
+                  child: TextField(
+                    controller: _controllerCpf,
+                    autofocus: true,
+                    keyboardType: TextInputType.text,
+                    style: TextStyle(fontSize: 20),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                      labelText: "CPF",
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(3),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 8),
+                  child: TextField(
+                    controller: _controllerCelular,
+                    autofocus: true,
+                    keyboardType: TextInputType.text,
+                    style: TextStyle(fontSize: 20),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                      labelText: "Celular",
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(3),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 8),
+                  child: TextField(
+                    controller: _controllerMatricula,
+                    autofocus: true,
+                    keyboardType: TextInputType.text,
+                    style: TextStyle(fontSize: 20),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                      labelText: "Matrícula",
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(3),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 8),
+                  child: TextField(
+                    controller: _controllerDatanascimento,
+                    autofocus: true,
+                    keyboardType: TextInputType.text,
+                    style: TextStyle(fontSize: 20),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                      labelText: "Data de Nascimento",
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(3),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 8),
+                  child: TextField(
+                    controller: _controllerEmail,
+                    autofocus: true,
+                    keyboardType: TextInputType.text,
+                    style: TextStyle(fontSize: 20),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                      labelText: "E-mail",
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(3),
                       ),
                     ),
                   ),
@@ -194,7 +304,7 @@ class _MeusdadosState extends State<Meusdados> {
                       borderRadius: BorderRadius.circular(32),
                     ),
                     onPressed: () {
-                      _atualizarNomeFirestore();
+                      _atualizarDadosFirestore();
                     },
                   ),
                 ),
