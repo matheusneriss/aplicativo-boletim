@@ -14,7 +14,7 @@ class _PainelGuardaState extends State<PainelGuarda> {
   TextEditingController _controllerEmail = TextEditingController();
 
   List<String> itensMenu = [
-    "Configurações", "Sair"
+     "Sair"
   ];
 
   _deslogarUsuario() async{
@@ -27,9 +27,6 @@ class _PainelGuardaState extends State<PainelGuarda> {
   switch(escolha){
     case "Sair" :
       _deslogarUsuario();
-      break;
-    case "Configurações" :
-
       break;
   }
 
