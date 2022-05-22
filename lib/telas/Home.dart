@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:gcm_app/telas/PainelComandante.dart';
 import '../model/Usuario.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -51,16 +52,40 @@ class _HomeState extends State<Home> {
         email: usuario.email,
         password: usuario.senha
     ).then((firebaseUser){
-      Navigator.pushReplacement(
-                     context,
-                     MaterialPageRoute(
-                       builder: (context) => PainelGuarda(),
-                     ));    }).catchError((error){
+      _redirecionaPainelTipoUsuario(firebaseUser.user!.uid);
+      }).catchError((error){
       _mensagemErro = "Erro ao autenticar usuário, verifique e-mail e senha e tente novamente!";
     });
 
   }
 
+  _redirecionaPainelTipoUsuario(String idUsuario) async {
+    FirebaseFirestore db = FirebaseFirestore.instance;
+    DocumentSnapshot snapshot = await db.collection("Guardas")
+    .doc(idUsuario)
+    .get();
+
+    Map<String, dynamic> data = snapshot.data()! as Map<String, dynamic>;
+    String tipoUsuario = data["tipoUsuario"];
+
+    switch(tipoUsuario){
+      case "Guarda" :
+      Navigator.pushReplacement(
+                     context,
+                     MaterialPageRoute(
+                       builder: (context) => PainelGuarda(),
+                     ));
+        break;
+      case "Comandante" :
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PainelComandante(),
+            ));
+        break;
+    }
+
+  }
 
 
  // Future _verificaUsuarioLogado() async {
