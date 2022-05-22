@@ -14,7 +14,7 @@ class _PainelGuardaState extends State<PainelGuarda> {
   TextEditingController _controllerEmail = TextEditingController();
 
   List<String> itensMenu = [
-    "Configurações", "Deslogar"
+    "Configurações", "Sair"
   ];
 
   _deslogarUsuario() async{
@@ -25,7 +25,7 @@ class _PainelGuardaState extends State<PainelGuarda> {
   _escolhaMenuItem(String escolha){
 
   switch(escolha){
-    case "Deslogar" :
+    case "Sair" :
       _deslogarUsuario();
       break;
     case "Configurações" :
@@ -76,7 +76,31 @@ class _PainelGuardaState extends State<PainelGuarda> {
               onTap: () {
                 Navigator.pushNamed(context, "/meusdados");
               },
-            )
+            ),
+            new ListTile(
+              title: new Text("Listagem dos Guardas"),
+              onTap: () {
+                Navigator.pushNamed(context, "/meusdados");
+              },
+            ),
+            new ListTile(
+              title: new Text("Cadastrar pessoa"),
+              onTap: () {
+                Navigator.pushNamed(context, "/meusdados");
+              },
+            ),
+            new ListTile(
+              title: new Text("Cadastrar boletim"),
+              onTap: () {
+                Navigator.pushNamed(context, "/meusdados");
+              },
+            ),
+            new ListTile(
+              title: new Text("Viaturas"),
+              onTap: () {
+                Navigator.pushNamed(context, "/meusdados");
+              },
+            ),
             ]
         ),
       ),
