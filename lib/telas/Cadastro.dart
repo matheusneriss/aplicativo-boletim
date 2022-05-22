@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:gcm_app/model/Usuario.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
 
 class Cadastro extends StatefulWidget {
   const Cadastro({Key? key}) : super(key: key);
@@ -21,6 +23,24 @@ class _CadastroState extends State<Cadastro> {
   TextEditingController _controllerEmail = TextEditingController();
   bool _tipoUsuario = false;
   String _mensagemErro = "";
+
+  var maskCellphone= new MaskTextInputFormatter(
+      mask: '(##) #####-####',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
+
+  var maskCPF= new MaskTextInputFormatter(
+      mask: '###.###.###-##',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
+
+  var maskDataNascimento= new MaskTextInputFormatter(
+      mask: '##/##/####',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
 
   _validarCampos() {
     // Recuperar dados dos campos
@@ -144,6 +164,7 @@ class _CadastroState extends State<Cadastro> {
                 TextField(
                   controller: _controllerCpf,
                   autofocus: true,
+                  inputFormatters: [maskCPF],
                   keyboardType: TextInputType.number,
                   style: TextStyle(fontSize: 20),
                   decoration: InputDecoration(
@@ -170,6 +191,7 @@ class _CadastroState extends State<Cadastro> {
                 TextField(
                   controller: _controllerCelular,
                   autofocus: true,
+                  inputFormatters: [maskCellphone],
                   keyboardType: TextInputType.number,
                   style: TextStyle(fontSize: 20),
                   decoration: InputDecoration(
@@ -183,6 +205,7 @@ class _CadastroState extends State<Cadastro> {
                 TextField(
                   controller: _controllerDatanascimento,
                   autofocus: true,
+                  inputFormatters: [maskDataNascimento],
                   keyboardType: TextInputType.number,
                   style: TextStyle(fontSize: 20),
                   decoration: InputDecoration(
