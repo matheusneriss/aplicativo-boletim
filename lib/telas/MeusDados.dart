@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io' as i;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
 
 class Meusdados extends StatefulWidget {
   const Meusdados({Key? key}) : super(key: key);
@@ -26,6 +28,24 @@ class _MeusdadosState extends State<Meusdados> {
   late String _idUserLogado;
   bool _subindoImagem = false;
   late String? _urlImagemRecuperada = null;
+
+  var maskCellphone= new MaskTextInputFormatter(
+      mask: '(##) #####-####',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
+
+  var maskCPF= new MaskTextInputFormatter(
+      mask: '###.###.###-##',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
+
+  var maskDataNascimento= new MaskTextInputFormatter(
+      mask: '##/##/####',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
 
 
   Future _recuperarImagem(String origemImagem) async{
@@ -205,6 +225,7 @@ class _MeusdadosState extends State<Meusdados> {
                   padding: EdgeInsets.only(bottom: 8),
                   child: TextField(
                     controller: _controllerCpf,
+                    inputFormatters: [maskCPF],
                     autofocus: true,
                     keyboardType: TextInputType.text,
                     style: TextStyle(fontSize: 20),
@@ -223,6 +244,7 @@ class _MeusdadosState extends State<Meusdados> {
                   padding: EdgeInsets.only(bottom: 8),
                   child: TextField(
                     controller: _controllerCelular,
+                    inputFormatters: [maskCellphone],
                     autofocus: true,
                     keyboardType: TextInputType.text,
                     style: TextStyle(fontSize: 20),
@@ -259,6 +281,7 @@ class _MeusdadosState extends State<Meusdados> {
                   padding: EdgeInsets.only(bottom: 8),
                   child: TextField(
                     controller: _controllerDatanascimento,
+                    inputFormatters: [maskDataNascimento],
                     autofocus: true,
                     keyboardType: TextInputType.text,
                     style: TextStyle(fontSize: 20),
