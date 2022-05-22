@@ -305,6 +305,45 @@ class _MeusdadosState extends State<Meusdados> {
                     ),
                     onPressed: () {
                       _atualizarDadosFirestore();
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Dialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                  BorderRadius.circular(20.0)), //this right here
+                              child: Container(
+                                height: 200,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      TextField(
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: 'Dados salvos com sucesso!'),
+                                      ),
+                                      SizedBox(
+                                        width: 320.0,
+                                        child: RaisedButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text(
+                                            "Ok",
+                                            style: TextStyle(color: Colors.white),
+                                          ),
+                                          color: const Color(0xFF1BC0C5),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          });;
                     },
                   ),
                 ),
