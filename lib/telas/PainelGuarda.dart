@@ -80,17 +80,29 @@ class _PainelGuardaState extends State<PainelGuarda> {
             new ListTile(
               title: new Text("Listagem dos Guardas"),
               onTap: () {
+                Navigator.pushNamed(context, "/abaguardas");
+              },
+            ),
+            new ListTile(
+              title: new Text("Cadastrar pessoas"),
+              onTap: () {
                 Navigator.pushNamed(context, "/meusdados");
               },
             ),
             new ListTile(
-              title: new Text("Cadastrar pessoa"),
+              title: new Text("Consultar pessoas"),
               onTap: () {
                 Navigator.pushNamed(context, "/meusdados");
               },
             ),
             new ListTile(
               title: new Text("Cadastrar boletim"),
+              onTap: () {
+                Navigator.pushNamed(context, "/meusdados");
+              },
+            ),
+            new ListTile(
+              title: new Text("Consultar boletins cadastrados"),
               onTap: () {
                 Navigator.pushNamed(context, "/meusdados");
               },

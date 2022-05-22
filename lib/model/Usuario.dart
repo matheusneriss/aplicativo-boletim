@@ -7,9 +7,16 @@ class Usuario{
   String _celular = "";
   String _matricula = "";
   String _datanascimento = "";
+  String _urlImagem = "";
   String _cpf = "";
 
   Usuario();
+
+  String get urlImagem => _urlImagem;
+
+  set urlImagem(String value) {
+    _urlImagem = value;
+  }
 
   Map<String, dynamic> toMap(){
     Map<String, dynamic> map = {

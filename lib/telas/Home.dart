@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/scheduler.dart';
 import '../model/Usuario.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'PainelGuarda.dart';
 
 class Home extends StatefulWidget {
@@ -50,36 +51,37 @@ class _HomeState extends State<Home> {
         email: usuario.email,
         password: usuario.senha
     ).then((firebaseUser){
-
-      Navigator.pushReplacementNamed(context, "/painel-guarda");
-
-    }).catchError((error){
+      Navigator.pushReplacement(
+                     context,
+                     MaterialPageRoute(
+                       builder: (context) => PainelGuarda(),
+                     ));    }).catchError((error){
       _mensagemErro = "Erro ao autenticar usuário, verifique e-mail e senha e tente novamente!";
     });
 
   }
 
- Future _verificaUsuarioLogado() async {
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      FirebaseAuth auth = FirebaseAuth.instance;
-      //auth.signOut();
-      User usuarioLogado = auth.currentUser!;
 
-      if (usuarioLogado != null) {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => PainelGuarda(),
-            ));
-      }
-    });
-  }
 
-  @override
-  void initState() {
-    _verificaUsuarioLogado();
-    super.initState();
-  }
+ // Future _verificaUsuarioLogado() async {
+ //      FirebaseAuth auth = FirebaseAuth.instance;
+ //      //auth.signOut();
+ //      User usuarioLogado = auth.currentUser!;
+ //
+ //      if (usuarioLogado != null) {
+ //        Navigator.pushReplacement(
+ //            context,
+ //            MaterialPageRoute(
+ //              builder: (context) => PainelGuarda(),
+ //            ));
+ //      };
+ //  }
+ //
+ //  @override
+ //  void initState() {
+ //    _verificaUsuarioLogado();
+ //    super.initState();
+ //  }
 
 
 
