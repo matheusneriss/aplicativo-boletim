@@ -102,7 +102,7 @@ class _PainelGuardaState extends State<PainelGuarda> {
               },
             ),
             new ListTile(
-              title: new Text("Consultar boletins cadastrados"),
+              title: new Text("Consultar boletins"),
               onTap: () {
                 Navigator.pushNamed(context, "/meusdados");
               },
@@ -111,6 +111,18 @@ class _PainelGuardaState extends State<PainelGuarda> {
               title: new Text("Viaturas"),
               onTap: () {
                 Navigator.pushNamed(context, "/meusdados");
+              },
+            ),
+            new ListTile(
+              title: new Text("Consultar Viaturas"),
+              onTap: () {
+                Navigator.pushNamed(context, "/meusdados");
+              },
+            ),
+            new ListTile(
+              title: new Text("Sair"),
+              onTap: () {
+                _deslogarUsuario();
               },
             ),
             ]
