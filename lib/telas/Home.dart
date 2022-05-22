@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/scheduler.dart';
 import '../model/Usuario.dart';
+import 'PainelGuarda.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -56,6 +58,30 @@ class _HomeState extends State<Home> {
     });
 
   }
+
+ Future _verificaUsuarioLogado() async {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      FirebaseAuth auth = FirebaseAuth.instance;
+      //auth.signOut();
+      User usuarioLogado = auth.currentUser!;
+
+      if (usuarioLogado != null) {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PainelGuarda(),
+            ));
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    _verificaUsuarioLogado();
+    super.initState();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
