@@ -92,6 +92,7 @@ class _ResetScreenState extends State<ResetScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               TextField(
+                                textAlign: TextAlign.center,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Senha enviada com sucesso para o e-mail'),

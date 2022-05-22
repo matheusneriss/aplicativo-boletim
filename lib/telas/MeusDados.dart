@@ -321,6 +321,7 @@ class _MeusdadosState extends State<Meusdados> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       TextField(
+                                        textAlign: TextAlign.center,
                                         decoration: InputDecoration(
                                             border: InputBorder.none,
                                             hintText: 'Dados salvos com sucesso!'),
