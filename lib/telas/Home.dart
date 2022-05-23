@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:gcm_app/telas/PainelComandante.dart';
@@ -97,27 +98,24 @@ class _HomeState extends State<Home> {
   }
 
 
- // Future _verificaUsuarioLogado() async {
- //      FirebaseAuth auth = FirebaseAuth.instance;
- //      //auth.signOut();
- //      User usuarioLogado = auth.currentUser!;
- //
- //      if (usuarioLogado != null) {
- //        Navigator.pushReplacement(
- //            context,
- //            MaterialPageRoute(
- //              builder: (context) => PainelGuarda(),
- //            ));
- //      };
- //  }
- //
- //  @override
- //  void initState() {
- //    _verificaUsuarioLogado();
- //    super.initState();
- //  }
+    Future _verificarUsuarioLogado() async {
+      WidgetsFlutterBinding.ensureInitialized();
+      await Firebase.initializeApp();
+      FirebaseAuth auth = FirebaseAuth.instance;
+      // auth.signOut();
+      User? usuarioLogado = await auth.currentUser;
 
+      if(usuarioLogado!=null){
+        String idUsuario = usuarioLogado.uid;
+        _redirecionaPainelTipoUsuario(idUsuario);
+      }
+  }
 
+  @override
+  void initState(){
+    super.initState();
+    _verificarUsuarioLogado();
+  }
 
   @override
   Widget build(BuildContext context) {

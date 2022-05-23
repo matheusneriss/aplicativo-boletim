@@ -147,7 +147,7 @@ class _MeusdadosState extends State<Meusdados> {
     _idUserLogado = userLogado.uid;
 
     User? usuarioLogado = await auth.currentUser;
-    DocumentSnapshot snapshot = await db.collection("Guardas").doc(usuarioLogado!.uid!).get();
+    DocumentSnapshot snapshot = await db.collection("Guardas").doc(usuarioLogado!.uid).get();
 
     dynamic dados = snapshot.data();
     _controllerNome.text = dados["nome"];
