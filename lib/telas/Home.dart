@@ -17,12 +17,13 @@ class _HomeState extends State<Home> {
   TextEditingController _controllerEmail = TextEditingController();
   TextEditingController _controllerSenha = TextEditingController();
   String _mensagemErro = "";
+  bool _carregando = false;
 
   _validarCampos() {
     // Recuperar dados dos campos
     String senha = _controllerSenha.text;
     String email = _controllerEmail.text;
-    String _mensagemErro = "";
+
 
     Usuario usuario = Usuario();
     usuario.senha = senha;
@@ -47,6 +48,10 @@ class _HomeState extends State<Home> {
   }
 
   _logarUsuario(Usuario usuario){
+    setState((){
+      _carregando = true;
+    });
+
     FirebaseAuth auth = FirebaseAuth.instance;
     auth.signInWithEmailAndPassword(
         email: usuario.email,
@@ -67,6 +72,10 @@ class _HomeState extends State<Home> {
 
     Map<String, dynamic> data = snapshot.data()! as Map<String, dynamic>;
     String tipoUsuario = data["tipoUsuario"];
+
+    setState((){
+      _carregando = false;
+    });
 
     switch(tipoUsuario){
       case "Guarda" :
@@ -200,6 +209,12 @@ class _HomeState extends State<Home> {
                     },
                   ),
                 ),
+                Padding(padding: EdgeInsets.all(10)),
+                _carregando ? Center(
+                  child: CircularProgressIndicator(
+                    backgroundColor: Colors.white,
+                  ),
+                ): Container(),
                 Padding(
                   padding: EdgeInsets.only(top: 16),
                   child: Center(
