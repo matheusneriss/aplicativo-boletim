@@ -96,15 +96,12 @@ class _HomeState extends State<Home> {
     }
 
   }
-
-
+  
     Future _verificarUsuarioLogado() async {
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp();
       FirebaseAuth auth = FirebaseAuth.instance;
-      // auth.signOut();
       User? usuarioLogado = await auth.currentUser;
-
       if(usuarioLogado!=null){
         String idUsuario = usuarioLogado.uid;
         _redirecionaPainelTipoUsuario(idUsuario);
