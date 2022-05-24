@@ -32,7 +32,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 TextField(
-                //  controller: _controllerDatanascimento,
+                controller: _controllerMarca,
                   autofocus: true,
                   // inputFormatters: [maskDataNascimento],
                   keyboardType: TextInputType.number,
@@ -46,7 +46,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                           borderRadius: BorderRadius.circular(6))),
                 ),
                 TextField(
-               //   controller: _controllerEmail,
+               controller: _controllerModelo,
                   keyboardType: TextInputType.emailAddress,
                   style: TextStyle(fontSize: 20),
                   decoration: InputDecoration(
@@ -58,7 +58,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                           borderRadius: BorderRadius.circular(6))),
                 ),
                 TextField(
-                //  controller: _controllerSenha,
+                  controller: _controllerNumeroviatura,
                   obscureText: true,
                   keyboardType: TextInputType.text,
                   style: TextStyle(fontSize: 20),
@@ -71,7 +71,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                           borderRadius: BorderRadius.circular(6))),
                 ),
                 TextField(
-                  //  controller: _controllerSenha,
+                  controller: _controllerPlaca,
                   obscureText: true,
                   keyboardType: TextInputType.text,
                   style: TextStyle(fontSize: 20),
