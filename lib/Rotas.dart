@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gcm_app/telas/AbaGuardas.dart';
 import 'package:gcm_app/telas/Cadastro.dart';
+import 'package:gcm_app/telas/CadastroViatura.dart';
 import 'package:gcm_app/telas/MeusDados.dart';
 import 'package:gcm_app/telas/PainelComandante.dart';
 import 'package:gcm_app/telas/PainelGuarda.dart';
@@ -24,7 +25,9 @@ class Rotas {
         return MaterialPageRoute(builder: (_) => AbaContatos());
       case "/meusdados":
         return MaterialPageRoute(builder: (_) => Meusdados());
-      default:
+      case "/cadastroviatura":
+        return MaterialPageRoute(builder: (_) => CadastroViatura());
+        default:
         _erroRota();
     }
   }

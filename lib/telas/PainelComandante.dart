@@ -47,7 +47,79 @@ class _PainelComandanteState extends State<PainelComandante> {
     )
     ],
     ),
-    body: Container()
+      drawer: new Drawer(
+        child: ListView(
+            children: [
+              new UserAccountsDrawerHeader(
+                accountName: new Text(
+                    "Matheus Neris Xavier Da Rocha"
+                ),
+                accountEmail: new Text(
+                    "matheusneris2011@gmail.com"
+                ),
+                currentAccountPicture: new CircleAvatar(
+                  backgroundImage: new NetworkImage(
+                    'https://uploads.metropoles.com/wp-content/uploads/2022/05/09154316/foto-Neymar-PSG-08052022-600x400.jpg',
+                  ),
+                ),
+              ),
+              new ListTile(
+                title: new Text("Meus Dados"),
+                onTap: () {
+                  Navigator.pushNamed(context, "/meusdados");
+                },
+              ),
+              new ListTile(
+                title: new Text("Listagem dos Guardas"),
+                onTap: () {
+                  Navigator.pushNamed(context, "/abaguardas");
+                },
+              ),
+              new ListTile(
+                title: new Text("Cadastrar pessoas"),
+                onTap: () {
+                  Navigator.pushNamed(context, "/meusdados");
+                },
+              ),
+              new ListTile(
+                title: new Text("Consultar pessoas"),
+                onTap: () {
+                  Navigator.pushNamed(context, "/meusdados");
+                },
+              ),
+              new ListTile(
+                title: new Text("Cadastrar boletim"),
+                onTap: () {
+                  Navigator.pushNamed(context, "/meusdados");
+                },
+              ),
+              new ListTile(
+                title: new Text("Consultar boletins"),
+                onTap: () {
+                  Navigator.pushNamed(context, "/meusdados");
+                },
+              ),
+              new ListTile(
+                title: new Text("Viaturas"),
+                onTap: () {
+                  Navigator.pushNamed(context, "/cadastroviatura");
+                },
+              ),
+              new ListTile(
+                title: new Text("Consultar Viaturas"),
+                onTap: () {
+                  Navigator.pushNamed(context, "/meusdados");
+                },
+              ),
+              new ListTile(
+                title: new Text("Sair"),
+                onTap: () {
+                  _deslogarUsuario();
+                },
+              ),
+            ]
+        ),
+      ),
     );
   }
 }

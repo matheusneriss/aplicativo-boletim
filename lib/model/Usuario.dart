@@ -42,7 +42,7 @@ class Usuario{
   }
 
   String verificaTipoUsuario(bool tipoUsuario){
-    return tipoUsuario ? "Comandante" : "Guarda";
+    return tipoUsuario ? "" : "Guarda";
   }
 
   String get cpf => _cpf;

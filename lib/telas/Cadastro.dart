@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -120,7 +119,8 @@ class _CadastroState extends State<Cadastro> {
         .createUserWithEmailAndPassword(
             email: usuario.email, password: usuario.senha)
         .then((firebaseUser) {
-      db.collection("Guardas").doc(firebaseUser.user?.uid).set(usuario.toMap());
+      db.collection("Guardas").doc(firebaseUser.user?.uid)
+          .set(usuario.toMap());
 
       // redireciona para o painel, de acordo com o tipoUsuario
       switch (usuario.tipoUsuario) {
@@ -269,7 +269,6 @@ class _CadastroState extends State<Cadastro> {
                               _tipoUsuario = valor;
                             });
                           }),
-                      Text("Comandante"),
                     ],
                   ),
                 ),
@@ -284,6 +283,48 @@ class _CadastroState extends State<Cadastro> {
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
                     onPressed: () {
                       _validarCampos();
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Dialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                  BorderRadius.circular(20.0)), //this right here
+                              child: Container(
+                                height: 200,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      TextField(
+                                        textAlign: TextAlign.center,
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: 'Cadastro realizado com sucesso!',
+                                            labelText: 'Clique em Ok e realize o login no app :D! OBS: Caso você seja um comandante ou precise de uma permissào maior que a de um guarda no aplicativo, por favor entrar em contato com os administradores, para que eles realizem a liberação do mesmo'
+                                        )
+                                      ),
+                                      SizedBox(
+                                        width: 320.0,
+                                        child: RaisedButton(
+                                          onPressed: () {
+                                            Navigator.pushNamed(context, "/");
+                                          },
+                                          child: Text(
+                                            "Ok",
+                                            style: TextStyle(color: Colors.white),
+                                          ),
+                                          color: const Color(0xFF1BC0C5),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          });;
                     },
                   ),
                 ),

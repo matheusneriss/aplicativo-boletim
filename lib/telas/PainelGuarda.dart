@@ -105,12 +105,6 @@ class _PainelGuardaState extends State<PainelGuarda> {
               },
             ),
             new ListTile(
-              title: new Text("Viaturas"),
-              onTap: () {
-                Navigator.pushNamed(context, "/meusdados");
-              },
-            ),
-            new ListTile(
               title: new Text("Consultar Viaturas"),
               onTap: () {
                 Navigator.pushNamed(context, "/meusdados");
