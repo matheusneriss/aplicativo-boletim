@@ -96,7 +96,7 @@ class _HomeState extends State<Home> {
     }
 
   }
-  
+
     Future _verificarUsuarioLogado() async {
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp();

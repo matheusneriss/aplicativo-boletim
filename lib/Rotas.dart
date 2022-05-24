@@ -21,7 +21,7 @@ class Rotas {
       case "/recuperarsenha":
         return MaterialPageRoute(builder: (_) => ResetScreen());
       case "/abaguardas":
-        return MaterialPageRoute(builder: (_) => AbaGuardas());
+        return MaterialPageRoute(builder: (_) => AbaContatos());
       case "/meusdados":
         return MaterialPageRoute(builder: (_) => Meusdados());
       default:

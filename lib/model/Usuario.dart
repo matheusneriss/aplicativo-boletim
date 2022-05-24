@@ -27,6 +27,7 @@ class Usuario{
       "data de nascimento" : this.datanascimento,
       "email" : this.email,
       "tipoUsuario": this.tipoUsuario,
+      "urlImagem" : this.urlImagem,
     };
     return map;
 

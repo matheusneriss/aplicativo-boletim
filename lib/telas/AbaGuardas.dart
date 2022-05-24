@@ -1,113 +1,83 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import '../model/Usuario.dart';
 
-class AbaGuardas extends StatefulWidget {
-  const AbaGuardas({Key? key}) : super(key: key);
-
+class AbaContatos extends StatefulWidget {
+  const AbaContatos({Key? key}) : super(key: key);
   @override
-  _AbaGuardasState createState() => _AbaGuardasState();
+  _AbaContatosState createState() => _AbaContatosState();
 }
 
-class _AbaGuardasState extends State<AbaGuardas> {
-
-  String? _idUsuarioLogado;
-  String? _emailUsuarioLogado;
-
-
+class _AbaContatosState extends State<AbaContatos> {
   Future<List<Usuario>> _recuperarContatos() async {
+    FirebaseFirestore database = FirebaseFirestore.instance;
+    QuerySnapshot querySnapshot = await database.collection("Guardas").get();
 
-
-    QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection("Guardas").get();
-
-    //var lista = List.filled(0, [], growable: true);
-
-    List<Usuario> listaUsuarios = [];
+    List<Usuario> _listaUsuarios = [];
 
     for (DocumentSnapshot item in querySnapshot.docs) {
-
-      Map dadosmap = {};
       var dados = item.data();
-      dadosmap = dados as Map;
-
+      var dadosmap = dados as Map<String, dynamic>;
       Usuario usuario = Usuario();
-      if (dados["email"] == _emailUsuarioLogado) continue;
-      usuario.email = dados["email"];
-      usuario.nome = dados["nome"];
-      usuario.urlImagem = dados["urlImagem"];
+      usuario.email = dadosmap["email"];
+      usuario.nome = dadosmap["nome"];
+      usuario.urlImagem = dadosmap["urlImagem"];
 
-
-      listaUsuarios.add(usuario);
+      _listaUsuarios.add(usuario);
     }
-    return listaUsuarios;
-
-  }
-
-  _recuperarDadosUsuario() async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-
-    var usuariologado = FirebaseAuth.instance.currentUser;
-    _idUsuarioLogado = usuariologado!.uid;
-    _emailUsuarioLogado = usuariologado.email;
-
-  }
-
-  @override
-  void initState() {
-    _recuperarDadosUsuario();
-    _recuperarContatos();
-    super.initState();
+    return _listaUsuarios;
   }
 
   @override
   Widget build(BuildContext context) {
+    List<Usuario> listaItens = [];
     return FutureBuilder<List<Usuario>>(
       future: _recuperarContatos(),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.none:
           case ConnectionState.waiting:
-            return Center(
-              child: Column(
-                children: [
-                  Text("Carregando contatos"),
-                  CircularProgressIndicator()
-                ],
-              ),
-            );
-            break;
+            return const Center(child: CircularProgressIndicator());
           case ConnectionState.active:
           case ConnectionState.done:
             return ListView.builder(
-                itemCount: snapshot.data?.length,
-                itemBuilder: (_, indice) {
-
-
-                  List<Usuario> listaItens = snapshot.data!;
-                  Usuario usuario = listaItens[indice];
-
-
-                  return ListTile(
-                    contentPadding: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                    leading: CircleAvatar(
-                      maxRadius: 30,
-                      backgroundColor: Colors.grey,
-                      backgroundImage: NetworkImage(usuario.urlImagem),
+              itemCount: snapshot.data!.length,
+              itemBuilder: (_, index) {
+                listaItens = snapshot.data!;
+                // Map<String, dynamic> data =
+                //     snapshot.data! as Map<String, dynamic>;
+                // listaItens = data as List<Usuario>;
+                Usuario usuario = listaItens[index];
+                return GestureDetector(
+                  onTap: () {},
+                  child: Card(
+                    borderOnForeground: true,
+                    elevation: 5,
+                    child: ListTile(
+                      contentPadding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
+                      leading: CircleAvatar(
+                          maxRadius: 30,
+                          backgroundColor: Colors.grey,
+                          backgroundImage: usuario.urlImagem != null
+                              ? NetworkImage(usuario.urlImagem.toString())
+                              : null),
+                      title: Text(
+                        usuario.nome,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
-                    title: Text(
-                      usuario.nome,
-                      style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                  );
-                });
-            break;
+                  ),
+                );
+              },
+            );
         }
-        return Container();
       },
     );
   }
 }
+
+
+
