@@ -9,8 +9,15 @@ class Usuario{
   String _datanascimento = "";
   String _urlImagem = "";
   String _cpf = "";
+  String _qra = "";
 
   Usuario();
+
+  String get qra => _qra;
+
+  set qra(String value) {
+    _qra = value;
+  }
 
   String get urlImagem => _urlImagem;
 
@@ -28,6 +35,7 @@ class Usuario{
       "email" : this.email,
       "tipoUsuario": this.tipoUsuario,
       "urlImagem" : this.urlImagem,
+      "nome de guerra" : this.qra,
     };
     return map;
 

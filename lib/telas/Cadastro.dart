@@ -21,6 +21,7 @@ class _CadastroState extends State<Cadastro> {
   TextEditingController _controllerDatanascimento = TextEditingController();
   TextEditingController _controllerSenha = TextEditingController();
   TextEditingController _controllerEmail = TextEditingController();
+  TextEditingController _controllerQra = TextEditingController();
   bool _tipoUsuario = false;
   String _mensagemErro = "";
 
@@ -51,6 +52,7 @@ class _CadastroState extends State<Cadastro> {
     String datanascimento = _controllerDatanascimento.text;
     String senha = _controllerSenha.text;
     String email = _controllerEmail.text;
+    String qra = _controllerQra.text;
 
     Usuario usuario = Usuario();
     usuario.nome = nome;
@@ -60,6 +62,7 @@ class _CadastroState extends State<Cadastro> {
     usuario.datanascimento = datanascimento;
     usuario.senha = senha;
     usuario.email = email;
+    usuario.qra = qra;
     usuario.tipoUsuario = usuario.verificaTipoUsuario(_tipoUsuario);
 
     _cadastrarUsuario(usuario);
@@ -156,6 +159,19 @@ class _CadastroState extends State<Cadastro> {
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.fromLTRB(32, 10, 32, 10),
                       hintText: "Nome completo",
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(6))),
+                ),
+                TextField(
+                  controller: _controllerQra,
+                  autofocus: true,
+                  keyboardType: TextInputType.text,
+                  style: TextStyle(fontSize: 20),
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(32, 10, 32, 10),
+                      hintText: "Nome de guerra",
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
