@@ -22,6 +22,8 @@ class _MeusdadosState extends State<Meusdados> {
   TextEditingController _controllerMatricula = TextEditingController();
   TextEditingController _controllerDatanascimento = TextEditingController();
   TextEditingController _controllerEmail = TextEditingController();
+  TextEditingController _controllerQra = TextEditingController();
+
 
   final ImagePicker _picker = ImagePicker();
   late XFile _imagem;
@@ -156,6 +158,7 @@ class _MeusdadosState extends State<Meusdados> {
     _controllerMatricula.text = dados["matricula"];
     _controllerDatanascimento.text = dados["data de nascimento"];
     _controllerEmail.text =dados["email"];
+    _controllerQra.text = dados["nome de guerra"];
 
     setState(() {
       _urlImagemRecuperada = "${(dados as dynamic)["urlImagem"]}";
@@ -213,6 +216,24 @@ class _MeusdadosState extends State<Meusdados> {
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
                       labelText: "Nome",
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(3),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 8),
+                  child: TextField(
+                    controller: _controllerQra,
+                    autofocus: true,
+                    keyboardType: TextInputType.text,
+                    style: TextStyle(fontSize: 20),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                      labelText: "Nome de guerra",
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
