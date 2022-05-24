@@ -8,6 +8,14 @@ class CadastroViatura extends StatefulWidget {
 }
 
 class _CadastroViaturaState extends State<CadastroViatura> {
+
+  //Controladores
+  TextEditingController _controllerMarca = TextEditingController();
+  TextEditingController _controllerModelo = TextEditingController();
+  TextEditingController _controllerNumeroviatura = TextEditingController();
+  TextEditingController _controllerPlaca = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +39,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                   style: TextStyle(fontSize: 20),
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.fromLTRB(32, 10, 32, 10),
-                      hintText: "Data de nascimento",
+                      hintText: "Marca",
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
@@ -43,7 +51,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                   style: TextStyle(fontSize: 20),
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.fromLTRB(32, 10, 32, 10),
-                      hintText: "E-mail",
+                      hintText: "Modelo",
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
@@ -56,7 +64,20 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                   style: TextStyle(fontSize: 20),
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.fromLTRB(32, 10, 32, 10),
-                      hintText: "Senha",
+                      hintText: "Número da viatura",
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(6))),
+                ),
+                TextField(
+                  //  controller: _controllerSenha,
+                  obscureText: true,
+                  keyboardType: TextInputType.text,
+                  style: TextStyle(fontSize: 20),
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(32, 10, 32, 10),
+                      hintText: "Placa",
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
@@ -66,7 +87,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                   padding: EdgeInsets.only(top: 16, bottom: 10),
                   child: RaisedButton(
                     child: Text(
-                      "Cadastrar viatura",
+                      "Cadastrar",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                     color: Color.fromARGB(255, 6, 134, 49),
