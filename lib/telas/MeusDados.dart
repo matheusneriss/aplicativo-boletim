@@ -227,6 +227,7 @@ class _MeusdadosState extends State<Meusdados> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 8),
                   child: TextField(
+                    readOnly: true,
                     controller: _controllerQra,
                     autofocus: true,
                     keyboardType: TextInputType.text,
@@ -283,6 +284,7 @@ class _MeusdadosState extends State<Meusdados> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 8),
                   child: TextField(
+                    readOnly: true,
                     controller: _controllerMatricula,
                     autofocus: true,
                     keyboardType: TextInputType.text,
