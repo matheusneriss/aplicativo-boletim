@@ -32,7 +32,8 @@ class _PainelComandanteState extends State<PainelComandante> {
     return Scaffold(
         appBar: AppBar(
         title: Text("Painel Comandante"),
-    actions: [
+          backgroundColor: Color(0xFF092757),
+          actions: [
     PopupMenuButton<String>(
     onSelected: _escolhaMenuItem,
     itemBuilder: (context){

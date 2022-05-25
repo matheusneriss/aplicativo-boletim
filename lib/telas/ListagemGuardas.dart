@@ -15,7 +15,8 @@ class _GuardaslistagemState extends State<Guardaslistagem> {
     return Scaffold(
         appBar: AppBar(
         title: Text("Listagem dos Guardas"),
-    ),
+          backgroundColor: Color(0xFF092757),
+        ),
       body: Container(
         child:AbaContatos()
       ),

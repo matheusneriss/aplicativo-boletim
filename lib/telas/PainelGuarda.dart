@@ -36,6 +36,7 @@ class _PainelGuardaState extends State<PainelGuarda> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Painel Guarda"),
+        backgroundColor: Color(0xFF092757),
         actions: [
           PopupMenuButton<String>(
             onSelected: _escolhaMenuItem,
