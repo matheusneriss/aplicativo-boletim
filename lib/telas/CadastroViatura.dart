@@ -153,6 +153,47 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
                     onPressed: () {
                      _validarCampos();
+                     showDialog(
+                         context: context,
+                         builder: (BuildContext context) {
+                           return Dialog(
+                             shape: RoundedRectangleBorder(
+                                 borderRadius:
+                                 BorderRadius.circular(20.0)), //this right here
+                             child: Container(
+                               height: 200,
+                               child: Padding(
+                                 padding: const EdgeInsets.all(12.0),
+                                 child: Column(
+                                   mainAxisAlignment: MainAxisAlignment.center,
+                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                   children: [
+                                     TextField(
+                                         textAlign: TextAlign.center,
+                                         decoration: InputDecoration(
+                                             border: InputBorder.none,
+                                             hintText: 'Cadastro realizado com sucesso!',
+                                         )
+                                     ),
+                                     SizedBox(
+                                       width: 320.0,
+                                       child: RaisedButton(
+                                         onPressed: () {
+                                           Navigator.of(context).pop();
+                                         },
+                                         child: Text(
+                                           "Ok",
+                                           style: TextStyle(color: Colors.white),
+                                         ),
+                                         color: const Color(0xFF1BC0C5),
+                                       ),
+                                     )
+                                   ],
+                                 ),
+                               ),
+                             ),
+                           );
+                         });
                     },
                   ),
                 ),
