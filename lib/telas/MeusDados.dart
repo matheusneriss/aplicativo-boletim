@@ -347,7 +347,7 @@ class _MeusdadosState extends State<Meusdados> {
                       "Salvar",
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
-                    color: Colors.green,
+                    color: Color(0xFF092757),
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(32),

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,10 @@ class PainelComandante extends StatefulWidget {
 }
 
 class _PainelComandanteState extends State<PainelComandante> {
+  TextEditingController _controllerNome = TextEditingController();
+  TextEditingController _controllerEmail = TextEditingController();
+  late String? _urlImagemRecuperada = null;
+
   List<String> itensMenu = [
     "Sair"
   ];
@@ -27,6 +32,28 @@ class _PainelComandanteState extends State<PainelComandante> {
     }
 
   }
+
+  _recuperarDadosUsuario() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    FirebaseFirestore db = FirebaseFirestore.instance;
+
+    User? usuarioLogado = await auth.currentUser;
+    DocumentSnapshot snapshot = await db.collection("Guardas").doc(usuarioLogado!.uid).get();
+
+    dynamic dados = snapshot.data();
+    _controllerNome.text = dados["nome"];
+    _controllerEmail.text =dados["email"];
+    setState(() {
+      _urlImagemRecuperada = "${(dados as dynamic)["urlImagem"]}";
+    });
+
+  }
+  @override
+  void initState() {
+    super.initState();
+    _recuperarDadosUsuario();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,15 +80,16 @@ class _PainelComandanteState extends State<PainelComandante> {
             children: [
               new UserAccountsDrawerHeader(
                 accountName: new Text(
-                    "Matheus Neris Xavier Da Rocha"
+                    _controllerNome.text
                 ),
                 accountEmail: new Text(
-                    "matheusneris2011@gmail.com"
+                    _controllerEmail.text
                 ),
                 currentAccountPicture: new CircleAvatar(
-                  backgroundImage: new NetworkImage(
-                    'https://uploads.metropoles.com/wp-content/uploads/2022/05/09154316/foto-Neymar-PSG-08052022-600x400.jpg',
-                  ),
+                    backgroundImage:
+                    _urlImagemRecuperada == null
+                        ? NetworkImage("https://firebasestorage.googleapis.com/v0/b/whatsapp-8de85.appspot.com/o/perfil%2Favatar_padrao.jpg?alt=media&token=d3f4446e-62de-46c6-85d3-ae954eb86909"):
+                    NetworkImage(_urlImagemRecuperada!)
                 ),
               ),
               new ListTile(
