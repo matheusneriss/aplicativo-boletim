@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class CadastroViatura extends StatefulWidget {
@@ -14,7 +15,61 @@ class _CadastroViaturaState extends State<CadastroViatura> {
   TextEditingController _controllerModelo = TextEditingController();
   TextEditingController _controllerNumeroviatura = TextEditingController();
   TextEditingController _controllerPlaca = TextEditingController();
+  String _mensagemErro = "";
 
+
+  _validarCampos(){
+
+    //recuperar dados dos campos
+    String marca = _controllerMarca.text;
+    String modelo = _controllerModelo.text;
+    String numeroviatura = _controllerNumeroviatura.text;
+    String placa = _controllerPlaca.text;
+
+    if(marca.isNotEmpty){
+      if(modelo.isNotEmpty){
+        if(numeroviatura.isNotEmpty){
+          if(placa.isNotEmpty){
+            setState((){
+              _mensagemErro = "";
+            });
+            cadastrarViatura();
+          }else{
+
+            setState((){
+              _mensagemErro = "Preencha o campo Placa";
+            });
+
+          }
+
+        }else{
+          setState((){
+            _mensagemErro = "Preencha o campo Número da viatura";
+          });
+
+        }
+
+      }else{
+        setState((){
+          _mensagemErro = "Preencha o campo Modelo";
+        });
+
+      }
+
+    }else{
+      setState((){
+        _mensagemErro = "Preencha o campo Marca";
+      });
+    }
+  }
+
+  cadastrarViatura(){
+    // FirebaseFirestore db = FirebaseFirestore.instance;
+    // db.collection("Viaturas")
+    // .doc().set(.toMap());
+
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +90,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                 controller: _controllerMarca,
                   autofocus: true,
                   // inputFormatters: [maskDataNascimento],
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.text,
                   style: TextStyle(fontSize: 20),
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.fromLTRB(32, 10, 32, 10),
@@ -47,7 +102,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                 ),
                 TextField(
                controller: _controllerModelo,
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType: TextInputType.text,
                   style: TextStyle(fontSize: 20),
                   decoration: InputDecoration(
                       contentPadding: EdgeInsets.fromLTRB(32, 10, 32, 10),
@@ -59,7 +114,6 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                 ),
                 TextField(
                   controller: _controllerNumeroviatura,
-                  obscureText: true,
                   keyboardType: TextInputType.text,
                   style: TextStyle(fontSize: 20),
                   decoration: InputDecoration(
@@ -72,7 +126,6 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                 ),
                 TextField(
                   controller: _controllerPlaca,
-                  obscureText: true,
                   keyboardType: TextInputType.text,
                   style: TextStyle(fontSize: 20),
                   decoration: InputDecoration(
@@ -93,7 +146,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                     color: Color.fromARGB(255, 6, 134, 49),
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
                     onPressed: () {
-                     // _validarCampos();
+                     _validarCampos();
                     },
                   ),
                 ),
@@ -101,8 +154,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                   padding: EdgeInsets.only(top: 16),
                   child: Center(
                     child: Text(
-                      "ERRO",
-                    //  _mensagemErro,
+                      _mensagemErro,
                       style: TextStyle(color: Colors.red, fontSize: 20),
                     ),
                   ),
