@@ -143,6 +143,7 @@ class _CadastroState extends State<Cadastro> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Cadastro"),
+        backgroundColor: Color(0xFF092757),
       ),
       body: Container(
         padding: EdgeInsets.all(16),

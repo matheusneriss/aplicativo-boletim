@@ -94,54 +94,63 @@ class _PainelComandanteState extends State<PainelComandante> {
               ),
               new ListTile(
                 title: new Text("Meus Dados"),
+                leading: Icon(Icons.account_box_outlined),
                 onTap: () {
                   Navigator.pushNamed(context, "/meusdados");
                 },
               ),
               new ListTile(
                 title: new Text("Listagem dos Guardas"),
+                leading: Icon(Icons.line_style_sharp),
                 onTap: () {
                   Navigator.pushNamed(context, "/abaguardas");
                 },
               ),
               new ListTile(
                 title: new Text("Cadastrar pessoas"),
+                leading: Icon(Icons.people_alt_outlined),
                 onTap: () {
                   Navigator.pushNamed(context, "/meusdados");
                 },
               ),
               new ListTile(
                 title: new Text("Consultar pessoas"),
+                leading: Icon(Icons.list_rounded),
                 onTap: () {
                   Navigator.pushNamed(context, "/meusdados");
                 },
               ),
               new ListTile(
                 title: new Text("Cadastrar boletim"),
+                leading: Icon(Icons.add_alert_outlined),
                 onTap: () {
                   Navigator.pushNamed(context, "/meusdados");
                 },
               ),
               new ListTile(
                 title: new Text("Consultar boletins"),
+                leading: Icon(Icons.list_alt_outlined),
                 onTap: () {
                   Navigator.pushNamed(context, "/meusdados");
                 },
               ),
               new ListTile(
                 title: new Text("Viaturas"),
+                leading: Icon(Icons.car_rental),
                 onTap: () {
                   Navigator.pushNamed(context, "/cadastroviatura");
                 },
               ),
               new ListTile(
                 title: new Text("Consultar Viaturas"),
+                leading: Icon(Icons.list_alt),
                 onTap: () {
                   Navigator.pushNamed(context, "/meusdados");
                 },
               ),
               new ListTile(
                 title: new Text("Sair"),
+                leading: Icon(Icons.logout_outlined),
                 onTap: () {
                   _deslogarUsuario();
                 },

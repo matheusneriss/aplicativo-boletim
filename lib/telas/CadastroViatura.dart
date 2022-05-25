@@ -82,8 +82,9 @@ class _CadastroViaturaState extends State<CadastroViatura> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Cadastro viatura"
+          "Cadastro viatura",
         ),
+        backgroundColor: Color(0xFF092757),
       ),
       body: Container(
         padding: EdgeInsets.all(16),
