@@ -73,7 +73,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
 
   _cadastrarViatura(Viatura viatura){
     FirebaseFirestore db = FirebaseFirestore.instance;
-    db.collection("Viatura")
+    db.collection("Viaturas")
         .add(viatura.toMap());
   }
 

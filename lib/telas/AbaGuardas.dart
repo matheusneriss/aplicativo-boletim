@@ -24,6 +24,7 @@ class _AbaContatosState extends State<AbaContatos> {
       usuario.urlImagem = dadosmap["urlImagem"];
 
       _listaUsuarios.add(usuario);
+      _listaUsuarios.sort((a,b) => a.nome.toLowerCase().compareTo(b.nome.toLowerCase())); //ADICIONE ESSA LINHA.
     }
     return _listaUsuarios;
   }
