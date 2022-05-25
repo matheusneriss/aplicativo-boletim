@@ -52,8 +52,10 @@ class _AbaContatosState extends State<AbaContatos> {
                 return GestureDetector(
                   onTap: () {},
                   child: Card(
+                    elevation: 8,
+                    shadowColor: Color(0xFF1BC0C5),
+                    margin: EdgeInsets.all(10),
                     borderOnForeground: true,
-                    elevation: 5,
                     child: ListTile(
                       contentPadding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
                       leading: CircleAvatar(
