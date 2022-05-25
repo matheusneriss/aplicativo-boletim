@@ -12,6 +12,18 @@ class Viatura {
     _placa = value;
   }
 
+ Map<String, dynamic> toMap(){
+  Map<String, dynamic> map = {
+   "Marca" : this.marca,
+   "Modelo" : this.modelo,
+   "Número da viatura" : this.numeroviatura,
+   "Placa" : this.placa,
+
+  };
+  return map;
+
+ }
+
   String get numeroviatura => _numeroviatura;
 
   set numeroviatura(String value) {

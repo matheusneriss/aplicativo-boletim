@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:gcm_app/model/Viatura.dart';
 
 class CadastroViatura extends StatefulWidget {
   const CadastroViatura({Key? key}) : super(key: key);
@@ -33,7 +34,14 @@ class _CadastroViaturaState extends State<CadastroViatura> {
             setState((){
               _mensagemErro = "";
             });
-            cadastrarViatura();
+
+            Viatura viatura = Viatura();
+            viatura.placa = placa;
+            viatura.numeroviatura = numeroviatura;
+            viatura.modelo = modelo;
+            viatura.marca = marca;
+
+            _cadastrarViatura(viatura);
           }else{
 
             setState((){
@@ -63,12 +71,10 @@ class _CadastroViaturaState extends State<CadastroViatura> {
     }
   }
 
-  cadastrarViatura(){
-    // FirebaseFirestore db = FirebaseFirestore.instance;
-    // db.collection("Viaturas")
-    // .doc().set(.toMap());
-
-
+  _cadastrarViatura(Viatura viatura){
+    FirebaseFirestore db = FirebaseFirestore.instance;
+    db.collection("Viatura")
+        .add(viatura.toMap());
   }
 
   @override
