@@ -70,6 +70,7 @@ class _ResetScreenState extends State<ResetScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           RaisedButton(
+            color: Color(0xFF092757),
             child: Text('Enviar solicitação',
             style: TextStyle(
               color: Colors.white,
@@ -118,9 +119,7 @@ class _ResetScreenState extends State<ResetScreen> {
                       ),
                     );
                   });
-
             },
-            color: Theme.of(context).accentColor,
           ),
 
         ],

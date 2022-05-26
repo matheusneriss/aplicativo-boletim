@@ -12,6 +12,8 @@ class PainelComandante extends StatefulWidget {
 class _PainelComandanteState extends State<PainelComandante> {
   TextEditingController _controllerNome = TextEditingController();
   TextEditingController _controllerEmail = TextEditingController();
+  TextEditingController _controllerQra = TextEditingController();
+
   late String? _urlImagemRecuperada = null;
 
   List<String> itensMenu = [
@@ -42,7 +44,7 @@ class _PainelComandanteState extends State<PainelComandante> {
 
     dynamic dados = snapshot.data();
     _controllerNome.text = dados["nome"];
-    _controllerEmail.text =dados["email"];
+    _controllerQra.text = dados["nome de guerra"];
     setState(() {
       _urlImagemRecuperada = "${(dados as dynamic)["urlImagem"]}";
     });
@@ -80,10 +82,10 @@ class _PainelComandanteState extends State<PainelComandante> {
             children: [
               new UserAccountsDrawerHeader(
                 accountName: new Text(
-                    _controllerNome.text
+                  'Nome: ' + _controllerNome.text
                 ),
                 accountEmail: new Text(
-                    _controllerEmail.text
+                    'Nome de Guerra: ' + _controllerQra.text
                 ),
                 currentAccountPicture: new CircleAvatar(
                     backgroundImage:
