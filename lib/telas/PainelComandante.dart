@@ -150,6 +150,10 @@ class _PainelComandanteState extends State<PainelComandante> {
                   Navigator.pushNamed(context, "/meusdados");
                 },
               ),
+              Divider(
+                color: Colors.black,
+                thickness: 0.5,
+              ),
               new ListTile(
                 title: new Text("Sair"),
                 leading: Icon(Icons.logout_outlined),
