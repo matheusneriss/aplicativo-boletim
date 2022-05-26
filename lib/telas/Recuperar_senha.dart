@@ -16,7 +16,9 @@ class _ResetScreenState extends State<ResetScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Redefinir senha'),),
+        title: Text('Redefinir senha'),
+        backgroundColor: Color(0xFF092757),
+      ),
       body: Container(
         padding: EdgeInsets.only(
           top: 30,
@@ -107,7 +109,7 @@ class _ResetScreenState extends State<ResetScreen> {
                                     "Ok",
                                     style: TextStyle(color: Colors.white),
                                   ),
-                                  color: const Color(0xFF1BC0C5),
+                                  color: const Color(0xFF092757),
                                 ),
                               )
                             ],
