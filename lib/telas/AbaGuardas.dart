@@ -19,12 +19,12 @@ class _AbaContatosState extends State<AbaContatos> {
       var dados = item.data();
       var dadosmap = dados as Map<String, dynamic>;
       Usuario usuario = Usuario();
-      usuario.email = dadosmap["email"];
-      usuario.nome = dadosmap["nome"];
+      usuario.qra = dados["nome de guerra"];
+      usuario.nome = dados["nome"];
       usuario.urlImagem = dadosmap["urlImagem"];
 
       _listaUsuarios.add(usuario);
-      _listaUsuarios.sort((a,b) => a.nome.toLowerCase().compareTo(b.nome.toLowerCase())); //ADICIONE ESSA LINHA.
+      _listaUsuarios.sort((a,b) => a.nome.toLowerCase().compareTo(b.nome.toLowerCase()));
     }
     return _listaUsuarios;
   }
@@ -65,7 +65,14 @@ class _AbaContatosState extends State<AbaContatos> {
                               ? NetworkImage(usuario.urlImagem.toString())
                               : null),
                       title: Text(
-                        usuario.nome,
+                       'Nome: ' +  usuario.nome,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: Text(
+                        'QRA: ' + usuario.qra,
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
