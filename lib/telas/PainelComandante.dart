@@ -144,8 +144,8 @@ class _PainelComandanteState extends State<PainelComandante> {
                 },
               ),
               new ListTile(
-                title: new Text("Consultar Viaturas"),
-                leading: Icon(Icons.list_alt),
+                title: new Text("Listagem das Viaturas"),
+                leading: Icon(Icons.policy_rounded),
                 onTap: () {
                   Navigator.pushNamed(context, "/meusdados");
                 },

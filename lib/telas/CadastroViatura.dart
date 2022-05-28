@@ -87,7 +87,6 @@ class _CadastroViaturaState extends State<CadastroViatura> {
         backgroundColor: Color(0xFF092757),
       ),
       body: Container(
-        padding: EdgeInsets.all(16),
         child: Center(
           child: SingleChildScrollView(
             child: Column(
@@ -213,5 +212,6 @@ class _CadastroViaturaState extends State<CadastroViatura> {
         ),
       ),
     );
+
   }
 }
