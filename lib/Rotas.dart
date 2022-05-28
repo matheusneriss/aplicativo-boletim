@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gcm_app/telas/AbaGuardas.dart';
 import 'package:gcm_app/telas/Cadastro.dart';
 import 'package:gcm_app/telas/CadastroViatura.dart';
+import 'package:gcm_app/telas/DadosGuardas.dart';
 import 'package:gcm_app/telas/ListagemGuardas.dart';
 import 'package:gcm_app/telas/MeusDados.dart';
 import 'package:gcm_app/telas/PainelComandante.dart';
@@ -11,6 +11,9 @@ import 'package:gcm_app/telas/Recuperar_senha.dart';
 
 class Rotas {
   static Route<dynamic>? gerarRotas(RouteSettings settings) {
+
+    dynamic args = settings.arguments;
+
     switch (settings.name) {
       case "/":
         return MaterialPageRoute(builder: (_) => Home());
@@ -28,6 +31,8 @@ class Rotas {
         return MaterialPageRoute(builder: (_) => Meusdados());
       case "/cadastroviatura":
         return MaterialPageRoute(builder: (_) => CadastroViatura());
+      case "/dadosguardas":
+        return MaterialPageRoute(builder: (_) => DadosGuardas(args));
         default:
         _erroRota();
     }

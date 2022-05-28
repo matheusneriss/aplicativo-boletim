@@ -45,12 +45,12 @@ class _AbaContatosState extends State<AbaContatos> {
               itemCount: snapshot.data!.length,
               itemBuilder: (_, index) {
                 listaItens = snapshot.data!;
-                // Map<String, dynamic> data =
-                //     snapshot.data! as Map<String, dynamic>;
-                // listaItens = data as List<Usuario>;
                 Usuario usuario = listaItens[index];
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, "/dadosguardas",
+                    arguments: usuario);
+                  },
                   child: Card(
                     elevation: 8,
                     shadowColor: Color(0xFF1BC0C5),
