@@ -18,9 +18,20 @@ class _DadosGuardasState extends State<DadosGuardas> {
         title: Text("Dados do Guarda"),
         backgroundColor: Color(0xFF092757),
       ),
-      body: CircleAvatar(
-        backgroundImage: NetworkImage(widget.guarda.urlImagem),
+      body: Container(
+          padding: EdgeInsets.all(16),
+          child: Center(
+          child: SingleChildScrollView(
+          child: Column(
+          children: [ CircleAvatar(
+    radius: 100,
+    backgroundColor: Colors.grey,
+    backgroundImage: NetworkImage(widget.guarda.urlImagem),
+    ),
+    ])
       ),
+    ),
+      )
     );
   }
 }
