@@ -10,6 +10,13 @@ class Usuario{
   String _urlImagem = "";
   String _cpf = "";
   String _qra = "";
+  String _excluido = "";
+
+  String get excluido => _excluido;
+
+  set excluido(String value) {
+    _excluido = value;
+  }
 
   Usuario();
 
@@ -34,8 +41,9 @@ class Usuario{
       "data de nascimento" : this.datanascimento,
       "email" : this.email,
       "tipoUsuario": this.tipoUsuario,
-      "urlImagem" : this.urlImagem,
+      "urlImagem" : "https://cdn4.vectorstock.com/i/1000x1000/60/78/police-avatar-character-icon-vector-12646078.jpg",
       "nome de guerra" : this.qra,
+      'excluido': false,
     };
     return map;
 

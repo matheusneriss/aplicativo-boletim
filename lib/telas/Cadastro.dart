@@ -284,6 +284,7 @@ class _CadastroState extends State<Cadastro> {
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
                     onPressed: () {
                       _validarCampos();
+
                       showDialog(
                           context: context,
                           builder: (BuildContext context) {

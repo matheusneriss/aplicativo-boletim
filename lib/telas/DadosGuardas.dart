@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gcm_app/model/Usuario.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -40,168 +41,200 @@ class _DadosGuardasState extends State<DadosGuardas> {
   );
 
   @override
-
-  void initState() {
-    widget.guarda.nome;
-    widget.guarda.qra;
-    widget.guarda.cpf;
-  }
-  @override
   Widget build(BuildContext context) {
+    var collection = FirebaseFirestore.instance.collection('Guardas')
+        .where('excluido', isEqualTo: false);
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Dados do Guarda"),
-        backgroundColor: Color(0xFF092757),
-      ),
-      body: Container(
+        appBar: AppBar(
+          title: Text("Dados do Guarda"),
+          backgroundColor: Color(0xFF092757),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (ctx) => AlertDialog(
+                    title: Text('Excluir Advogado'),
+                    content: Text('Tem certeza???'),
+                    actions: <Widget>[
+                      FlatButton(
+                        child: Text('Não'),
+                        onPressed: () =>
+                            Navigator.of(context).pop(false),
+                      ),
+                      FlatButton(
+                        child: Text('Sim'),
+                        onPressed: () =>
+                            Navigator.of(context).pop(true),
+                      ),
+                    ],
+                  ),
+                ).then((confirmed) async {
+                  if (confirmed) {
+                    var snapshot = await collection.get();
+                    for (var doc in snapshot.docs) {
+                      doc.reference.update({
+                        'excluido': true,
+                      }
+                      );
+                      // await doc.reference.delete();
+                    }
+                  }
+                });
+              },
+            ),
+          ],
+        ),
+        body: Container(
           padding: EdgeInsets.all(16),
           child: Center(
-          child: SingleChildScrollView(
-          child: Column(
-          children: [ CircleAvatar(
-    radius: 100,
-    backgroundColor: Colors.grey,
-    backgroundImage: NetworkImage(widget.guarda.urlImagem),
-    ),
-            Padding(padding: EdgeInsets.all(10)),
-            Padding(padding: EdgeInsets.only(bottom: 8),
-            child: TextField(
-              controller: _controllerNome,
-              readOnly: true,
-              autofocus: true,
-              keyboardType: TextInputType.text,
-              style: TextStyle(fontSize: 20),
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                labelText: "Nome",
-                filled: true,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(3),
-                ),
-              ),
+            child: SingleChildScrollView(
+                child: Column(
+                    children: [ CircleAvatar(
+                      radius: 100,
+                      backgroundColor: Colors.grey,
+                      backgroundImage: NetworkImage(widget.guarda.urlImagem),
+                    ),
+                      Padding(padding: EdgeInsets.all(10)),
+                      Padding(padding: EdgeInsets.only(bottom: 8),
+                        child: TextField(
+                          controller: _controllerNome,
+                          readOnly: true,
+                          autofocus: true,
+                          keyboardType: TextInputType.text,
+                          style: TextStyle(fontSize: 20),
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                            labelText: "Nome",
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(3),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8),
+                        child: TextField(
+                          controller: _controllerQra,
+                          readOnly: true,
+                          autofocus: true,
+                          keyboardType: TextInputType.text,
+                          style: TextStyle(fontSize: 20),
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                            labelText: "Nome",
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(3),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8),
+                        child: TextField(
+                          readOnly: true,
+                          controller: _controllercpf,
+                          inputFormatters: [maskCPF],
+                          autofocus: true,
+                          keyboardType: TextInputType.text,
+                          style: TextStyle(fontSize: 20),
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                            labelText: "CPF",
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(3),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8),
+                        child: TextField(
+                          controller: _controllerCelular,
+                          inputFormatters: [maskCellphone],
+                          autofocus: true,
+                          keyboardType: TextInputType.text,
+                          style: TextStyle(fontSize: 20),
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                            labelText: "Celular",
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(3),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8),
+                        child: TextField(
+                          readOnly: true,
+                          controller: _controllerMatricula,
+                          autofocus: true,
+                          keyboardType: TextInputType.text,
+                          style: TextStyle(fontSize: 20),
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                            labelText: "Matrícula",
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(3),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8),
+                        child: TextField(
+                          readOnly: true,
+                          controller: _controllerDatanascimento,
+                          inputFormatters: [maskDataNascimento],
+                          autofocus: true,
+                          keyboardType: TextInputType.text,
+                          style: TextStyle(fontSize: 20),
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                            labelText: "Data de Nascimento",
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(3),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8),
+                        child: TextField(
+                          controller: _controllerEmail,
+                          autofocus: true,
+                          keyboardType: TextInputType.text,
+                          style: TextStyle(fontSize: 20),
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                            labelText: "E-mail",
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(3),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                    ])
             ),
           ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: TextField(
-                controller: _controllerQra,
-                readOnly: true,
-                autofocus: true,
-                keyboardType: TextInputType.text,
-                style: TextStyle(fontSize: 20),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                  labelText: "Nome",
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: TextField(
-                readOnly: true,
-                controller: _controllercpf,
-                inputFormatters: [maskCPF],
-                autofocus: true,
-                keyboardType: TextInputType.text,
-                style: TextStyle(fontSize: 20),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                  labelText: "CPF",
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: TextField(
-                controller: _controllerCelular,
-                inputFormatters: [maskCellphone],
-                autofocus: true,
-                keyboardType: TextInputType.text,
-                style: TextStyle(fontSize: 20),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                  labelText: "Celular",
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: TextField(
-                readOnly: true,
-                controller: _controllerMatricula,
-                autofocus: true,
-                keyboardType: TextInputType.text,
-                style: TextStyle(fontSize: 20),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                  labelText: "Matrícula",
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: TextField(
-                readOnly: true,
-                controller: _controllerDatanascimento,
-                inputFormatters: [maskDataNascimento],
-                autofocus: true,
-                keyboardType: TextInputType.text,
-                style: TextStyle(fontSize: 20),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                  labelText: "Data de Nascimento",
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 8),
-              child: TextField(
-                controller: _controllerEmail,
-                autofocus: true,
-                keyboardType: TextInputType.text,
-                style: TextStyle(fontSize: 20),
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                  labelText: "E-mail",
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                ),
-              ),
-            ),
-
-    ])
-      ),
-    ),
-      )
+        )
     );
   }
 }

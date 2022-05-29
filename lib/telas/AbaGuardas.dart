@@ -11,7 +11,8 @@ class AbaContatos extends StatefulWidget {
 class _AbaContatosState extends State<AbaContatos> {
   Future<List<Usuario>> _recuperarContatos() async {
     FirebaseFirestore database = FirebaseFirestore.instance;
-    QuerySnapshot querySnapshot = await database.collection("Guardas").get();
+    QuerySnapshot querySnapshot = await database.collection("Guardas")
+        .where('excluido', isEqualTo: false).get();
 
     List<Usuario> _listaUsuarios = [];
 
