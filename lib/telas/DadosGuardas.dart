@@ -72,14 +72,14 @@ class _DadosGuardasState extends State<DadosGuardas> {
                   ),
                 ).then((confirmed) async {
                   if (confirmed) {
-                    var snapshot = await collection.get();
-                    for (var doc in snapshot.docs) {
-                      doc.reference.update({
-                        'excluido': true,
-                      }
-                      );
-                      // await doc.reference.delete();
-                    }
+                      FirebaseFirestore db = FirebaseFirestore.instance;
+                      Map<String,dynamic> dadosAtualizar ={
+                        "excluido" : true
+                      };
+                      
+                      db.collection("Guardas")
+                          .doc()
+                          .update(dadosAtualizar);
                   }
                 });
               },

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Usuario{
   String _idUsuario = "";
   String _nome = "";
@@ -43,6 +45,7 @@ class Usuario{
       "tipoUsuario": this.tipoUsuario,
       "urlImagem" : "https://cdn4.vectorstock.com/i/1000x1000/60/78/police-avatar-character-icon-vector-12646078.jpg",
       "nome de guerra" : this.qra,
+      "idUsuario" : this.idUsuario,
       'excluido': false,
     };
     return map;

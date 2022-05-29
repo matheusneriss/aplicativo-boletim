@@ -21,11 +21,11 @@ class _GuardaslistagemState extends State<Guardaslistagem> {
 
     );
   }
-   _pesquisadados(){
-    FirebaseFirestore db = FirebaseFirestore.instance;
-    Query query = db.collection("Guardas");
-    query = query.where("nome", isEqualTo: _pesquisa);
-  }
+  //  _pesquisadados(){
+  //   FirebaseFirestore db = FirebaseFirestore.instance;
+  //   Query query = db.collection("Guardas");
+  //   query = query.where("nome", isEqualTo: _pesquisa);
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
