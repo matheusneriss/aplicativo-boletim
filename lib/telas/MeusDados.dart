@@ -178,6 +178,51 @@ class _MeusdadosState extends State<Meusdados> {
       appBar: AppBar(title:
       Text("Meus Dados"),
         backgroundColor: Color(0xFF092757),
+        actions: [
+          IconButton(onPressed: (){
+            _atualizarDadosFirestore();
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return Dialog(
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                        BorderRadius.circular(20.0)), //this right here
+                    child: Container(
+                      height: 200,
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextField(
+                              textAlign: TextAlign.center,
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Dados salvos com sucesso!'),
+                            ),
+                            SizedBox(
+                              width: 320.0,
+                              child: RaisedButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  "Ok",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                color: const Color(0xFF1BC0C5),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                });;
+          }, icon: Icon(Icons.save_outlined))
+        ],
       ),
       body: Container(
         padding: EdgeInsets.all(16),
@@ -343,63 +388,63 @@ class _MeusdadosState extends State<Meusdados> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 16, bottom: 10),
-                  child: RaisedButton(
-                    child: Text(
-                      "Salvar",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                    color: Color(0xFF092757),
-                    padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(32),
-                    ),
-                    onPressed: () {
-                      _atualizarDadosFirestore();
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return Dialog(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                  BorderRadius.circular(20.0)), //this right here
-                              child: Container(
-                                height: 200,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      TextField(
-                                        textAlign: TextAlign.center,
-                                        decoration: InputDecoration(
-                                            border: InputBorder.none,
-                                            hintText: 'Dados salvos com sucesso!'),
-                                      ),
-                                      SizedBox(
-                                        width: 320.0,
-                                        child: RaisedButton(
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Text(
-                                            "Ok",
-                                            style: TextStyle(color: Colors.white),
-                                          ),
-                                          color: const Color(0xFF1BC0C5),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            );
-                          });;
-                    },
-                  ),
-                ),
+                // Padding(
+                //   padding: EdgeInsets.only(top: 16, bottom: 10),
+                //   child: RaisedButton(
+                //     child: Text(
+                //       "Salvar",
+                //       style: TextStyle(color: Colors.white, fontSize: 20),
+                //     ),
+                //     color: Color(0xFF092757),
+                //     padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                //     shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(32),
+                //     ),
+                //     onPressed: () {
+                //       _atualizarDadosFirestore();
+                //       showDialog(
+                //           context: context,
+                //           builder: (BuildContext context) {
+                //             return Dialog(
+                //               shape: RoundedRectangleBorder(
+                //                   borderRadius:
+                //                   BorderRadius.circular(20.0)), //this right here
+                //               child: Container(
+                //                 height: 200,
+                //                 child: Padding(
+                //                   padding: const EdgeInsets.all(12.0),
+                //                   child: Column(
+                //                     mainAxisAlignment: MainAxisAlignment.center,
+                //                     crossAxisAlignment: CrossAxisAlignment.start,
+                //                     children: [
+                //                       TextField(
+                //                         textAlign: TextAlign.center,
+                //                         decoration: InputDecoration(
+                //                             border: InputBorder.none,
+                //                             hintText: 'Dados salvos com sucesso!'),
+                //                       ),
+                //                       SizedBox(
+                //                         width: 320.0,
+                //                         child: RaisedButton(
+                //                           onPressed: () {
+                //                             Navigator.pop(context);
+                //                           },
+                //                           child: Text(
+                //                             "Ok",
+                //                             style: TextStyle(color: Colors.white),
+                //                           ),
+                //                           color: const Color(0xFF1BC0C5),
+                //                         ),
+                //                       )
+                //                     ],
+                //                   ),
+                //                 ),
+                //               ),
+                //             );
+                //           });;
+                //     },
+                //   ),
+                // ),
               ],
             ),
           ),
