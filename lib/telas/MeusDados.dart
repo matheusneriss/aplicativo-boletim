@@ -23,6 +23,7 @@ class _MeusdadosState extends State<Meusdados> {
   TextEditingController _controllerDatanascimento = TextEditingController();
   TextEditingController _controllerEmail = TextEditingController();
   TextEditingController _controllerQra = TextEditingController();
+  TextEditingController _controllertipoUsuario = TextEditingController();
 
 
   final ImagePicker _picker = ImagePicker();
@@ -159,6 +160,7 @@ class _MeusdadosState extends State<Meusdados> {
     _controllerDatanascimento.text = dados["data de nascimento"];
     _controllerEmail.text =dados["email"];
     _controllerQra.text = dados["nome de guerra"];
+    _controllertipoUsuario.text = dados["tipoUsuario"];
 
     setState(() {
       _urlImagemRecuperada = "${(dados as dynamic)["urlImagem"]}";
@@ -284,6 +286,25 @@ class _MeusdadosState extends State<Meusdados> {
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
                       labelText: "Nome de guerra",
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(3),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 8),
+                  child: TextField(
+                    readOnly: true,
+                    controller: _controllertipoUsuario,
+                    autofocus: true,
+                    keyboardType: TextInputType.text,
+                    style: TextStyle(fontSize: 20),
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                      labelText: "Cargo",
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
