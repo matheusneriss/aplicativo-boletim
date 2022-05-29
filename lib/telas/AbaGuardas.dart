@@ -21,6 +21,14 @@ class _AbaContatosState extends State<AbaContatos> {
       Usuario usuario = Usuario();
       usuario.qra = dados["nome de guerra"];
       usuario.nome = dados["nome"];
+      usuario.cpf = dados["cpf"];
+      usuario.celular = dados["celular"];
+      usuario.celular = dados["celular"];
+      usuario.matricula = dados["matricula"];
+      usuario.datanascimento = dados["data de nascimento"];
+      usuario.email = dados["email"];
+
+
       usuario.urlImagem = dadosmap["urlImagem"];
 
       _listaUsuarios.add(usuario);
