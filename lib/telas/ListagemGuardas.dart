@@ -30,6 +30,7 @@ class _GuardaslistagemState extends State<Guardaslistagem> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           backgroundColor: Color(0xFF092757),
           title: !searchEnabled ? Text(Title) :
           TextField(

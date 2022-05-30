@@ -60,7 +60,8 @@ class _PainelComandanteState extends State<PainelComandante> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-        title: Text("Painel Comandante"),
+          centerTitle: true,
+          title: Text("Painel Comandante"),
           backgroundColor: Color(0xFF092757),
           actions: [
     PopupMenuButton<String>(

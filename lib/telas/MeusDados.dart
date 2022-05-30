@@ -177,8 +177,9 @@ class _MeusdadosState extends State<Meusdados> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:
-      Text("Meus Dados"),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Meus Dados"),
         backgroundColor: Color(0xFF092757),
         actions: [
           IconButton(onPressed: (){
