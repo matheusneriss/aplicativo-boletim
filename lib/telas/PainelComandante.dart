@@ -152,7 +152,7 @@ class _PainelComandanteState extends State<PainelComandante> {
                 title: new Text("Listagem das Viaturas"),
                 leading: Icon(Icons.policy_rounded),
                 onTap: () {
-                  Navigator.pushNamed(context, "/meusdados");
+                  Navigator.pushNamed(context, "/listagemviaturas");
                 },
               ),
               Divider(

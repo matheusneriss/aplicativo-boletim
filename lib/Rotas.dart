@@ -3,6 +3,7 @@ import 'package:gcm_app/telas/Cadastro.dart';
 import 'package:gcm_app/telas/CadastroViatura.dart';
 import 'package:gcm_app/telas/DadosGuardas.dart';
 import 'package:gcm_app/telas/ListagemGuardas.dart';
+import 'package:gcm_app/telas/ListagemViaturas.dart';
 import 'package:gcm_app/telas/MeusDados.dart';
 import 'package:gcm_app/telas/PainelComandante.dart';
 import 'package:gcm_app/telas/PainelGuarda.dart';
@@ -29,11 +30,14 @@ class Rotas {
         return MaterialPageRoute(builder: (_) => Guardaslistagem());
       case "/meusdados":
         return MaterialPageRoute(builder: (_) => Meusdados());
-      case "/cadastroviatura":
+        case "/cadastroviatura":
         return MaterialPageRoute(builder: (_) => CadastroViatura());
       case "/dadosguardas":
         return MaterialPageRoute(builder: (_) => DadosGuardas(args));
-        default:
+      case "/listagemviaturas":
+        return MaterialPageRoute(builder: (_) => Viaturaslistagem());
+
+      default:
         _erroRota();
     }
   }
