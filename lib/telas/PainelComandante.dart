@@ -83,10 +83,14 @@ class _PainelComandanteState extends State<PainelComandante> {
             children: [
               new UserAccountsDrawerHeader(
                 accountName: new Text(
-                  'Nome: ' + _controllerNome.text
+                  'Nome: ' + _controllerNome.text,
+          style: new TextStyle(
+            fontSize: 18.0),
                 ),
                 accountEmail: new Text(
-                    'Nome de Guerra: ' + _controllerQra.text
+                    'Nome de Guerra: ' + _controllerQra.text,
+                  style: new TextStyle(
+                      fontSize: 16.0),
                 ),
                 currentAccountPicture: new CircleAvatar(
                     backgroundImage:
