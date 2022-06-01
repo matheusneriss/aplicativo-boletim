@@ -117,7 +117,7 @@ class _PainelComandanteState extends State<PainelComandante> {
                 title: new Text("Cadastrar pessoas"),
                 leading: Icon(Icons.people_alt_outlined),
                 onTap: () {
-                  Navigator.pushNamed(context, "/meusdados");
+                  Navigator.pushNamed(context, "/cadastropessoa");
                 },
               ),
               new ListTile(
@@ -142,7 +142,7 @@ class _PainelComandanteState extends State<PainelComandante> {
                 },
               ),
               new ListTile(
-                title: new Text("Viaturas"),
+                title: new Text("Cadastrar Viaturas"),
                 leading: Icon(Icons.car_rental),
                 onTap: () {
                   Navigator.pushNamed(context, "/cadastroviatura");

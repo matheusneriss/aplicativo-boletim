@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gcm_app/telas/Cadastro.dart';
+import 'package:gcm_app/telas/CadastroPessoa.dart';
 import 'package:gcm_app/telas/CadastroViatura.dart';
 import 'package:gcm_app/telas/DadosGuardas.dart';
 import 'package:gcm_app/telas/ListagemGuardas.dart';
@@ -36,6 +37,8 @@ class Rotas {
         return MaterialPageRoute(builder: (_) => DadosGuardas(args));
       case "/listagemviaturas":
         return MaterialPageRoute(builder: (_) => Viaturaslistagem());
+      case "/cadastropessoa":
+        return MaterialPageRoute(builder: (_) => CadastroPessoa());
 
       default:
         _erroRota();
