@@ -11,10 +11,10 @@ class AbaViaturas extends StatefulWidget {
 class _AbaViaturasState extends State<AbaViaturas> {
   Future<List<Viatura>> _recuperarContatos() async {
     FirebaseFirestore database = FirebaseFirestore.instance;
-    QuerySnapshot querySnapshot = await database.collection("Guardas")
-        .where('excluido', isEqualTo: false).get();
+    QuerySnapshot querySnapshot = await database.collection("Viaturas")
+        .get();
 
-    List<Viatura> _listaUsuarios = [];
+    List<Viatura> _listaViaturas = [];
 
     for (DocumentSnapshot item in querySnapshot.docs) {
       var dados = item.data() as Map<String, dynamic>;
@@ -23,10 +23,10 @@ class _AbaViaturasState extends State<AbaViaturas> {
       viatura.modelo = dados["Modelo"];
       viatura.numeroviatura = dados["Número da viatura"];
       viatura.placa = dados["Placa"];
-      _listaUsuarios.add(viatura);
-      _listaUsuarios.sort((a,b) => a.modelo.toLowerCase().compareTo(b.modelo.toLowerCase()));
+      _listaViaturas.add(viatura);
+      _listaViaturas.sort((a,b) => a.modelo.toLowerCase().compareTo(b.modelo.toLowerCase()));
     }
-    return _listaUsuarios;
+    return _listaViaturas;
   }
 
   @override
@@ -53,20 +53,20 @@ class _AbaViaturasState extends State<AbaViaturas> {
                   },
                   child: Card(
                     elevation: 8,
-                    shadowColor: Color(0xFF1BC0C5),
-                    margin: EdgeInsets.all(10),
+                    shadowColor: Colors.blueAccent,
+                    margin: EdgeInsets.all(13),
                     borderOnForeground: true,
                     child: ListTile(
                       contentPadding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
                       title: Text(
-                        'Nome: ' +  viatura.modelo,
+                        'Placa: ' +  viatura.placa,
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       subtitle: Text(
-                        'QRA: ' + viatura.marca,
+                        'Marca: ' + viatura.marca,
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,

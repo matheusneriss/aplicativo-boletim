@@ -46,6 +46,7 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
   TextEditingController _controllerEstadoNascimento = TextEditingController();
   String _mensagemErro = "";
 
+
   // _validarCampos(){
   //
   //   //recuperar dados dos campos
@@ -239,6 +240,26 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             ),
           ),
           TextFormField(
+            controller: _controllerCnh,
+            keyboardType: TextInputType.text,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 22,
+            ),
+            decoration: InputDecoration(
+              labelText: "CNH",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 22,
+              ),
+              hintText: "Digite a CNH",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
             controller: _controllerDatanascimento,
             keyboardType: TextInputType.text,
             style: TextStyle(
@@ -291,7 +312,7 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
                 color: Colors.black,
                 fontSize: 22,
               ),
-              hintText: "Digite a Data de nascimento",
+              hintText: "Digite o nome do pai",
               hintStyle: TextStyle(
                 color: Colors.black,
                 fontSize: 18,
@@ -311,7 +332,5 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
       ),
     );
   }
-
-
 }
 

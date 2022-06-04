@@ -68,6 +68,7 @@ class _DadosGuardasState extends State<DadosGuardas> {
         .where('excluido', isEqualTo: false);
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text("Dados do Guarda"),
           backgroundColor: Color(0xFF092757),
           actions: [
@@ -123,8 +124,8 @@ class _DadosGuardasState extends State<DadosGuardas> {
                 showDialog(
                   context: context,
                   builder: (ctx) => AlertDialog(
-                    title: Text('Excluir Advogado'),
-                    content: Text('Tem certeza???'),
+                    title: Text('Excluir o guarda ' + widget.guarda.nome + '?'),
+                    content: Text('Tem certeza?'),
                     actions: <Widget>[
                       FlatButton(
                         child: Text('Não'),
@@ -144,7 +145,6 @@ class _DadosGuardasState extends State<DadosGuardas> {
                       Map<String,dynamic> dadosAtualizar ={
                         "excluido" : true
                       };
-
                       db.collection("Guardas")
                           .doc()
                           .update(dadosAtualizar);
