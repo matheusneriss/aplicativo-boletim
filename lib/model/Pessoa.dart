@@ -18,7 +18,6 @@ class Pessoa{
   String _numcnh = "";
   String _catcnh = "";
   String _examecnh = "";
-  String _assinatura = "";
   String _numregistro = "";
   String _telefone = "";
   String _celular = "";
@@ -55,12 +54,6 @@ class Pessoa{
 
   set numregistro(String value) {
     _numregistro = value;
-  }
-
-  String get assinatura => _assinatura;
-
-  set assinatura(String value) {
-    _assinatura = value;
   }
 
   String get examecnh => _examecnh;

@@ -34,11 +34,9 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
   TextEditingController _controllerNaturalidade = TextEditingController();
   TextEditingController _controllerProfissao = TextEditingController();
   TextEditingController _controllerUfrg = TextEditingController();
-  TextEditingController _controllerCnh = TextEditingController();
   TextEditingController _controllerNumcnh = TextEditingController();
   TextEditingController _controllerCatcnh = TextEditingController();
   TextEditingController _controllerExamecnh = TextEditingController();
-  TextEditingController _controllerAssinatura = TextEditingController();
   TextEditingController _controllerNumregistro = TextEditingController();
   TextEditingController _controllerTelefone = TextEditingController();
   TextEditingController _controllerCelular = TextEditingController();
@@ -201,7 +199,7 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
           ),
           TextFormField(
             controller: _controllerCpf,
-            keyboardType: TextInputType.text,
+            keyboardType: TextInputType.number,
             style: TextStyle(
               color: Color(0xFF092757),
               fontSize: 22,
@@ -221,7 +219,7 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
           ),
           TextFormField(
             controller: _controllerRg,
-            keyboardType: TextInputType.text,
+            keyboardType: TextInputType.number,
             style: TextStyle(
               color: Color(0xFF092757),
               fontSize: 22,
@@ -240,14 +238,14 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             ),
           ),
           TextFormField(
-            controller: _controllerCnh,
-            keyboardType: TextInputType.text,
+            controller: _controllerNumcnh,
+            keyboardType: TextInputType.number,
             style: TextStyle(
               color: Color(0xFF092757),
               fontSize: 22,
             ),
             decoration: InputDecoration(
-              labelText: "CNH",
+              labelText: "Nº CNH",
               labelStyle: TextStyle(
                 color: Colors.black,
                 fontSize: 22,
@@ -260,8 +258,47 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             ),
           ),
           TextFormField(
+            controller: _controllerCatcnh,
+            keyboardType: TextInputType.number,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 22,
+            ),
+            decoration: InputDecoration(
+              labelText: "Categoria",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 22,
+              ),
+              hintText: "Digite a categoria",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),TextFormField(
+            controller: _controllerExamecnh,
+            keyboardType: TextInputType.number,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 22,
+            ),
+            decoration: InputDecoration(
+              labelText: "Exame médico",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 22,
+              ),
+              hintText: "Digite o exame médico",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
             controller: _controllerDatanascimento,
-            keyboardType: TextInputType.text,
+            keyboardType: TextInputType.number,
             style: TextStyle(
               color: Color(0xFF092757),
               fontSize: 22,
