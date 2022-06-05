@@ -182,13 +182,13 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             keyboardType: TextInputType.text,
             style: TextStyle(
               color: Color(0xFF092757),
-              fontSize: 22,
+              fontSize: 18,
             ),
             decoration: InputDecoration(
               labelText: "Nome",
               labelStyle: TextStyle(
                 color: Colors.black,
-                fontSize: 22,
+                fontSize: 18,
               ),
               hintText: "Digite o nome",
               hintStyle: TextStyle(
@@ -202,13 +202,13 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             keyboardType: TextInputType.number,
             style: TextStyle(
               color: Color(0xFF092757),
-              fontSize: 22,
+              fontSize: 18,
             ),
             decoration: InputDecoration(
               labelText: "CPF",
               labelStyle: TextStyle(
                 color: Colors.black,
-                fontSize: 22,
+                fontSize: 18,
               ),
               hintText: "Digite o CPF",
               hintStyle: TextStyle(
@@ -222,13 +222,13 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             keyboardType: TextInputType.number,
             style: TextStyle(
               color: Color(0xFF092757),
-              fontSize: 22,
+              fontSize: 18,
             ),
             decoration: InputDecoration(
               labelText: "RG",
               labelStyle: TextStyle(
                 color: Colors.black,
-                fontSize: 22,
+                fontSize: 18,
               ),
               hintText: "Digite o RG",
               hintStyle: TextStyle(
@@ -242,13 +242,13 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             keyboardType: TextInputType.number,
             style: TextStyle(
               color: Color(0xFF092757),
-              fontSize: 22,
+              fontSize: 18,
             ),
             decoration: InputDecoration(
               labelText: "Nº CNH",
               labelStyle: TextStyle(
                 color: Colors.black,
-                fontSize: 22,
+                fontSize: 18,
               ),
               hintText: "Digite a CNH",
               hintStyle: TextStyle(
@@ -262,13 +262,13 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             keyboardType: TextInputType.number,
             style: TextStyle(
               color: Color(0xFF092757),
-              fontSize: 22,
+              fontSize: 18,
             ),
             decoration: InputDecoration(
               labelText: "Categoria",
               labelStyle: TextStyle(
                 color: Colors.black,
-                fontSize: 22,
+                fontSize: 18,
               ),
               hintText: "Digite a categoria",
               hintStyle: TextStyle(
@@ -281,13 +281,13 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             keyboardType: TextInputType.number,
             style: TextStyle(
               color: Color(0xFF092757),
-              fontSize: 22,
+              fontSize: 18,
             ),
             decoration: InputDecoration(
               labelText: "Exame médico",
               labelStyle: TextStyle(
                 color: Colors.black,
-                fontSize: 22,
+                fontSize: 18,
               ),
               hintText: "Digite o exame médico",
               hintStyle: TextStyle(
@@ -301,13 +301,13 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             keyboardType: TextInputType.number,
             style: TextStyle(
               color: Color(0xFF092757),
-              fontSize: 22,
+              fontSize: 18,
             ),
             decoration: InputDecoration(
               labelText: "Data de nascimento",
               labelStyle: TextStyle(
                 color: Colors.black,
-                fontSize: 22,
+                fontSize: 18,
               ),
               hintText: "Digite a data de nascimento",
               hintStyle: TextStyle(
@@ -321,13 +321,13 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             keyboardType: TextInputType.text,
             style: TextStyle(
               color: Color(0xFF092757),
-              fontSize: 22,
+              fontSize: 18,
             ),
             decoration: InputDecoration(
               labelText: "Nome da mãe",
               labelStyle: TextStyle(
                 color: Colors.black,
-                fontSize: 22,
+                fontSize: 18,
               ),
               hintText: "Digite o nome da mãe",
               hintStyle: TextStyle(
@@ -341,13 +341,13 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             keyboardType: TextInputType.text,
             style: TextStyle(
               color: Color(0xFF092757),
-              fontSize: 22,
+              fontSize: 18,
             ),
             decoration: InputDecoration(
               labelText: "Nome do pai",
               labelStyle: TextStyle(
                 color: Colors.black,
-                fontSize: 22,
+                fontSize: 18,
               ),
               hintText: "Digite o nome do pai",
               hintStyle: TextStyle(
