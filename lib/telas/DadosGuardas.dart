@@ -40,6 +40,20 @@ class _DadosGuardasState extends State<DadosGuardas> {
       type: MaskAutoCompletionType.lazy
   );
 
+  _removerGuarda(){
+    String cpf = _controllerCpf.text;
+
+    FirebaseFirestore db = FirebaseFirestore.instance;
+    Map<String,dynamic> dadosAtualizar ={
+      "cpf" : cpf,
+      "excluido" : true
+    };
+    Usuario usuario = Usuario();
+    db.collection("Guardas")
+        .doc(cpf)
+        .update(dadosAtualizar);
+  }
+
   _atualizarDadosFirestore(){
     String nome = _controllerNome.text;
     String cpf = _controllerCpf.text;
@@ -67,7 +81,7 @@ class _DadosGuardasState extends State<DadosGuardas> {
   @override
   Widget build(BuildContext context) {
     var collection = FirebaseFirestore.instance.collection('Guardas')
-        .where('excluido', isEqualTo: false);
+        .where("excluido", isEqualTo: false);
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -112,7 +126,7 @@ class _DadosGuardasState extends State<DadosGuardas> {
                                       width: 100.0,
                                       child: RaisedButton(
                                         onPressed: () {
-                                          Navigator.pop(context);
+                                          Navigator.pushNamed(context, "/abaguardas");
                                         },
                                         child: Text(
                                           "Ok",
@@ -155,13 +169,7 @@ class _DadosGuardasState extends State<DadosGuardas> {
                   ),
                 ).then((confirmed) async {
                   if (confirmed) {
-                      FirebaseFirestore db = FirebaseFirestore.instance;
-                      Map<String,dynamic> dadosAtualizar ={
-                        "excluido" : true
-                      };
-                      db.collection("Guardas")
-                          .doc()
-                          .update(dadosAtualizar);
+                    _removerGuarda();
                   }
                 });
               },
