@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:gcm_app/model/Usuario.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-
 class Cadastro extends StatefulWidget {
   const Cadastro({Key? key}) : super(key: key);
 
@@ -21,7 +20,6 @@ class _CadastroState extends State<Cadastro> {
   TextEditingController _controllerSenha = TextEditingController();
   TextEditingController _controllerEmail = TextEditingController();
   TextEditingController _controllerQra = TextEditingController();
-  bool _tipoUsuario = false;
   String _mensagemErro = "";
 
   var maskCellphone= new MaskTextInputFormatter(
