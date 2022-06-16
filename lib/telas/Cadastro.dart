@@ -62,7 +62,7 @@ class _CadastroState extends State<Cadastro> {
     usuario.senha = senha;
     usuario.email = email;
     usuario.qra = qra;
-    usuario.tipoUsuario = usuario.verificaTipoUsuario(_tipoUsuario);
+    usuario.tipoUsuario = "Guarda";
 
     _cadastrarUsuario(usuario);
 
@@ -259,21 +259,6 @@ class _CadastroState extends State<Cadastro> {
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(6))),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 10),
-                  child: Row(
-                    children: [
-                      Text("Guarda"),
-                      Switch(
-                          value: _tipoUsuario,
-                          onChanged: (bool valor) {
-                            setState(() {
-                              _tipoUsuario = valor;
-                            });
-                          }),
-                    ],
-                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 16, bottom: 10),
