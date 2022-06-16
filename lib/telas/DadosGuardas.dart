@@ -44,6 +44,7 @@ class _DadosGuardasState extends State<DadosGuardas> {
     String nome = _controllerNome.text;
     String cpf = _controllerCpf.text;
     String celular = _controllerCelular.text;
+    String qra = _controllerQra.text;
     String matricula = _controllerMatricula.text;
     String datanascimento = _controllerDatanascimento.text;
     String email = _controllerEmail.text;
@@ -51,14 +52,15 @@ class _DadosGuardasState extends State<DadosGuardas> {
     Map<String,dynamic> dadosAtualizar ={
       "nome" : nome,
       "cpf" : cpf,
+      "nome de guerra" : qra,
       "celular" : celular,
       "matricula" : matricula,
       "data de nascimento" : datanascimento,
       "email" : email
     };
-
+    Usuario usuario = Usuario();
     db.collection("Guardas")
-        .doc()
+        .doc(cpf)
         .update(dadosAtualizar);
   }
 
@@ -84,7 +86,7 @@ class _DadosGuardasState extends State<DadosGuardas> {
                             borderRadius:
                             BorderRadius.circular(20.0)), //this right here
                         child: Container(
-                          height: 200,
+                          height: 120,
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
                             child: Column(
@@ -95,20 +97,32 @@ class _DadosGuardasState extends State<DadosGuardas> {
                                   textAlign: TextAlign.center,
                                   decoration: InputDecoration(
                                       border: InputBorder.none,
-                                      hintText: 'Dados salvos com sucesso!'),
-                                ),
-                                SizedBox(
-                                  width: 320.0,
-                                  child: RaisedButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text(
-                                      "Ok",
-                                      style: TextStyle(color: Colors.white),
+                                      hintText: 'Alterações realizadas!',
+                                    hintStyle: TextStyle(
+                                      color: Colors.black, // <-- Change this
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FontStyle.normal,
                                     ),
-                                    color: const Color(0xFF1BC0C5),
                                   ),
+                                ),
+                                Container(
+                                    alignment: Alignment.topCenter,
+                                    child: SizedBox(
+                                      width: 100.0,
+                                      child: RaisedButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text(
+                                          "Ok",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                            ),
+                                        ),
+                                        color: const Color(0xFF092757),
+                                      ),
+                                    )
                                 )
                               ],
                             ),
@@ -168,7 +182,6 @@ class _DadosGuardasState extends State<DadosGuardas> {
                       Padding(padding: EdgeInsets.only(bottom: 8),
                         child: TextField(
                           controller: _controllerNome,
-                          readOnly: true,
                           autofocus: true,
                           keyboardType: TextInputType.text,
                           style: TextStyle(fontSize: 20),
@@ -187,13 +200,12 @@ class _DadosGuardasState extends State<DadosGuardas> {
                         padding: EdgeInsets.only(bottom: 8),
                         child: TextField(
                           controller: _controllerQra,
-                          readOnly: true,
                           autofocus: true,
                           keyboardType: TextInputType.text,
                           style: TextStyle(fontSize: 20),
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                            labelText: "Nome",
+                            labelText: "Nome de Guerra",
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(
@@ -205,11 +217,10 @@ class _DadosGuardasState extends State<DadosGuardas> {
                       Padding(
                         padding: EdgeInsets.only(bottom: 8),
                         child: TextField(
-                          readOnly: true,
                           controller: _controllerCpf,
                           inputFormatters: [maskCPF],
                           autofocus: true,
-                          keyboardType: TextInputType.text,
+                          keyboardType: TextInputType.number,
                           style: TextStyle(fontSize: 20),
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
@@ -228,7 +239,7 @@ class _DadosGuardasState extends State<DadosGuardas> {
                           controller: _controllerCelular,
                           inputFormatters: [maskCellphone],
                           autofocus: true,
-                          keyboardType: TextInputType.text,
+                          keyboardType: TextInputType.number,
                           style: TextStyle(fontSize: 20),
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
@@ -244,7 +255,6 @@ class _DadosGuardasState extends State<DadosGuardas> {
                       Padding(
                         padding: EdgeInsets.only(bottom: 8),
                         child: TextField(
-                          readOnly: true,
                           controller: _controllerMatricula,
                           autofocus: true,
                           keyboardType: TextInputType.text,
@@ -263,11 +273,10 @@ class _DadosGuardasState extends State<DadosGuardas> {
                       Padding(
                         padding: EdgeInsets.only(bottom: 8),
                         child: TextField(
-                          readOnly: true,
                           controller: _controllerDatanascimento,
                           inputFormatters: [maskDataNascimento],
                           autofocus: true,
-                          keyboardType: TextInputType.text,
+                          keyboardType: TextInputType.datetime,
                           style: TextStyle(fontSize: 20),
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
@@ -285,7 +294,7 @@ class _DadosGuardasState extends State<DadosGuardas> {
                         child: TextField(
                           controller: _controllerEmail,
                           autofocus: true,
-                          keyboardType: TextInputType.text,
+                          keyboardType: TextInputType.emailAddress,
                           style: TextStyle(fontSize: 20),
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
@@ -298,7 +307,6 @@ class _DadosGuardasState extends State<DadosGuardas> {
                           ),
                         ),
                       ),
-
                     ])
             ),
           ),
