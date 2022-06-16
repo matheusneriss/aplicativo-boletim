@@ -126,7 +126,7 @@ class _DadosGuardasState extends State<DadosGuardas> {
                                       width: 100.0,
                                       child: RaisedButton(
                                         onPressed: () {
-                                          Navigator.pushNamed(context, "/abaguardas");
+                                          Navigator.pop(context);
                                         },
                                         child: Text(
                                           "Ok",
@@ -164,6 +164,7 @@ class _DadosGuardasState extends State<DadosGuardas> {
                         child: Text('Sim'),
                         onPressed: () =>
                             Navigator.of(context).pop(true),
+
                       ),
                     ],
                   ),
