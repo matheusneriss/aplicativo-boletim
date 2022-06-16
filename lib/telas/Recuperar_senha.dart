@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../model/Usuario.dart';
 
 
 class ResetScreen extends StatefulWidget {
@@ -17,7 +16,7 @@ class _ResetScreenState extends State<ResetScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Redefinir senha'),
+        title: Text('Recuperar senha'),
         backgroundColor: Color(0xFF092757),
       ),
       body: Container(
@@ -99,7 +98,7 @@ class _ResetScreenState extends State<ResetScreen> {
                                 textAlign: TextAlign.center,
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
-                                    hintText: 'Senha enviada com sucesso para o e-mail'),
+                                    hintText: 'Link enviado com sucesso!'),
                               ),
                               SizedBox(
                                 width: 320.0,

@@ -132,7 +132,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
                                   "Ok",
                                   style: TextStyle(color: Colors.white),
                                 ),
-                                color: const Color(0xFF1BC0C5),
+                                color: const Color(0xFF092757),
                               ),
                             )
                           ],

@@ -164,7 +164,6 @@ class _DadosGuardasState extends State<DadosGuardas> {
                         child: Text('Sim'),
                         onPressed: () =>
                             Navigator.of(context).pop(true),
-
                       ),
                     ],
                   ),
