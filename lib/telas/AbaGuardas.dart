@@ -29,7 +29,6 @@ class _AbaContatosState extends State<AbaContatos> {
       usuario.datanascimento = dados["data de nascimento"];
       usuario.email = dados["email"];
 
-
       usuario.urlImagem = dadosmap["urlImagem"];
 
       _listaUsuarios.add(usuario);

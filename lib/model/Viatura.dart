@@ -3,7 +3,13 @@ class Viatura {
  String _modelo ="";
  String _numeroviatura ="";
  String _placa ="";
+ String _excluido = "";
 
+ String get excluido => _excluido;
+
+ set excluido(String value) {
+  _excluido = value;
+ }
  Viatura();
 
  String get placa => _placa;
@@ -18,7 +24,7 @@ class Viatura {
    "Modelo" : this.modelo,
    "Número da viatura" : this.numeroviatura,
    "Placa" : this.placa,
-
+   "excluido": false,
   };
   return map;
 

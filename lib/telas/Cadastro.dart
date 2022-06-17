@@ -117,9 +117,8 @@ class _CadastroState extends State<Cadastro> {
         .createUserWithEmailAndPassword(
             email: usuario.email, password: usuario.senha)
         .then((firebaseUser) {
-      db.collection("Guardas").doc(usuario.cpf)
+      db.collection("Guardas").doc(firebaseUser.user?.uid)
           .set(usuario.toMap());
-      
 
       // redireciona para o painel, de acordo com o tipoUsuario
       switch (usuario.tipoUsuario) {

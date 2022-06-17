@@ -12,7 +12,7 @@ class _AbaViaturasState extends State<AbaViaturas> {
   Future<List<Viatura>> _recuperarContatos() async {
     FirebaseFirestore database = FirebaseFirestore.instance;
     QuerySnapshot querySnapshot = await database.collection("Viaturas")
-        .get();
+        .where('excluido', isEqualTo: false).get();
 
     List<Viatura> _listaViaturas = [];
 
@@ -48,7 +48,7 @@ class _AbaViaturasState extends State<AbaViaturas> {
                 Viatura viatura = listaItens[index];
                 return GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, "/dadosguardas",
+                    Navigator.pushNamed(context, "/dadosviaturas",
                         arguments: viatura);
                   },
                   child: Card(
