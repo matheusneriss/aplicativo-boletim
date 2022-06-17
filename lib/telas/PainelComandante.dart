@@ -129,7 +129,7 @@ class _PainelComandanteState extends State<PainelComandante> {
                 title: new Text("Consultar pessoas"),
                 leading: Icon(Icons.list_rounded),
                 onTap: () {
-                  Navigator.pushNamed(context, "/meusdados");
+                  Navigator.pushNamed(context, "/listagempessoas");
                 },
               ),
               new ListTile(

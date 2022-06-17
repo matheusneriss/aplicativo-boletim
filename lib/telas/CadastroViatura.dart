@@ -209,7 +209,7 @@ class _CadastroViaturaState extends State<CadastroViatura> {
               UpperCaseTextFormatter(),
             ],
             controller: _controllerNumeroviatura,
-            keyboardType: TextInputType.text,
+            keyboardType: TextInputType.number,
             style: TextStyle(
               color: Color(0xFF092757),
               fontSize: 22,
