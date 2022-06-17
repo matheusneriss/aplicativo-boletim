@@ -160,7 +160,9 @@ class _DadosViaturasState extends State<DadosViaturas> {
             ),
           ],
         ),
-        body:  Form(
+        body:  Padding(
+    padding: EdgeInsets.all(16),
+    child: Form(
       key: _formKey,
       child: ListView(
         children: <Widget>[
@@ -259,6 +261,7 @@ class _DadosViaturasState extends State<DadosViaturas> {
           ),
         ],
       ),
+        ),
         ),
     );
   }
