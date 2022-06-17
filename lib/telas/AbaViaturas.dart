@@ -16,6 +16,7 @@ class _AbaViaturasState extends State<AbaViaturas> {
 
     List<Viatura> _listaViaturas = [];
 
+
     for (DocumentSnapshot item in querySnapshot.docs) {
       var dados = item.data() as Map<String, dynamic>;
       Viatura viatura = Viatura();
@@ -28,6 +29,8 @@ class _AbaViaturasState extends State<AbaViaturas> {
     }
     return _listaViaturas;
   }
+
+
 
   @override
   Widget build(BuildContext context) {

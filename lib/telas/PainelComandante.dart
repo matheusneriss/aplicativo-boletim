@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gcm_app/model/Viatura.dart';
 
 class PainelComandante extends StatefulWidget {
   const PainelComandante({Key? key}) : super(key: key);
@@ -35,12 +36,16 @@ class _PainelComandanteState extends State<PainelComandante> {
 
   }
 
+
+
+
   _recuperarDadosUsuario() async {
     FirebaseAuth auth = FirebaseAuth.instance;
     FirebaseFirestore db = FirebaseFirestore.instance;
 
     User? usuarioLogado = await auth.currentUser;
     DocumentSnapshot snapshot = await db.collection("Guardas").doc(usuarioLogado!.uid).get();
+
 
     dynamic dados = snapshot.data();
     _controllerNome.text = dados["nome"];
@@ -167,6 +172,32 @@ class _PainelComandanteState extends State<PainelComandante> {
                 },
               ),
             ]
+        ),
+      ),
+      body:  Container(
+        padding: EdgeInsets.all(10.0),
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Card(
+                color: Color(0xFF092757),
+                child: Container(
+                  padding: EdgeInsets.all(20.0),
+                  child: Column(
+                    children: <Widget>[
+                      Image.network(
+                          "https://www.ubatuba.sp.gov.br/wp-content/uploads/sites/2/2021/02/Viatura-GCM-2-770x433.jpeg"),
+                      Divider(),
+
+                Text('Total de viaturas: ' + '',
+                        style: TextStyle(color: Colors.white,fontSize: 20),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

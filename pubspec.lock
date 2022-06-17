@@ -113,6 +113,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  dartz:
+    dependency: transitive
+    description:
+      name: dartz
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.10.1"
   deep_pick:
     dependency: transitive
     description:
@@ -422,6 +429,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
+  search_cep:
+    dependency: "direct main"
+    description:
+      name: search_cep
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0+1"
   sky_engine:
     dependency: transitive
     description: flutter

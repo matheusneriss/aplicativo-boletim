@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import '../model/Viatura.dart';
 
 class CadastroPessoa extends StatefulWidget {
@@ -19,6 +18,7 @@ class UpperCaseTextFormatter extends TextInputFormatter {
   }
 }
 class _CadastroPessoaState extends State<CadastroPessoa> {
+
   TextEditingController _controllerDatanascimento = TextEditingController();
   TextEditingController _controllerCor = TextEditingController();
   TextEditingController _controllerNome = TextEditingController();
@@ -37,67 +37,13 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
   TextEditingController _controllerNumcnh = TextEditingController();
   TextEditingController _controllerCatcnh = TextEditingController();
   TextEditingController _controllerExamecnh = TextEditingController();
-  TextEditingController _controllerNumregistro = TextEditingController();
   TextEditingController _controllerTelefone = TextEditingController();
   TextEditingController _controllerCelular = TextEditingController();
   TextEditingController _controllerMunicipio = TextEditingController();
   TextEditingController _controllerEstadoNascimento = TextEditingController();
   String _mensagemErro = "";
 
-
-  // _validarCampos(){
-  //
-  //   //recuperar dados dos campos
-  //   String marca = _controllerMarca.text;
-  //   String modelo = _controllerModelo.text;
-  //   String numeroviatura = _controllerNumeroviatura.text;
-  //   String placa = _controllerPlaca.text;
-  //
-  //   if(marca.isNotEmpty){
-  //     if(modelo.isNotEmpty){
-  //       if(numeroviatura.isNotEmpty){
-  //         if(placa.isNotEmpty){
-  //           setState((){
-  //             _mensagemErro = "";
-  //           });
-  //
-  //           Viatura viatura = Viatura();
-  //           viatura.placa = placa;
-  //           viatura.numeroviatura = numeroviatura;
-  //           viatura.modelo = modelo;
-  //           viatura.marca = marca;
-  //
-  //           _cadastrarViatura(viatura);
-  //         }else{
-  //
-  //           setState((){
-  //             _mensagemErro = "Preencha o campo Placa";
-  //           });
-  //
-  //         }
-  //
-  //       }else{
-  //         setState((){
-  //           _mensagemErro = "Preencha o campo Número da viatura";
-  //         });
-  //
-  //       }
-  //
-  //     }else{
-  //       setState((){
-  //         _mensagemErro = "Preencha o campo Modelo";
-  //       });
-  //
-  //     }
-  //
-  //   }else{
-  //     setState((){
-  //       _mensagemErro = "Preencha o campo Marca";
-  //     });
-  //   }
-  // }
-
-  _cadastrarViatura(Viatura viatura){
+  _cadastrarPessoa(Viatura viatura){
     FirebaseFirestore db = FirebaseFirestore.instance;
     db.collection("Viaturas")
         .add(viatura.toMap());
@@ -238,6 +184,26 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             ),
           ),
           TextFormField(
+            controller: _controllerUfrg,
+            keyboardType: TextInputType.number,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "UF do RG",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite o UF do RG",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
             controller: _controllerNumcnh,
             keyboardType: TextInputType.number,
             style: TextStyle(
@@ -298,7 +264,7 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
           ),
           TextFormField(
             controller: _controllerDatanascimento,
-            keyboardType: TextInputType.number,
+            keyboardType: TextInputType.datetime,
             style: TextStyle(
               color: Color(0xFF092757),
               fontSize: 18,
@@ -356,6 +322,146 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
               ),
             ),
           ),
+          TextFormField(
+            controller: _controllerNaturalidade,
+            keyboardType: TextInputType.text,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "Naturalidade",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite a naturalidade",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
+            controller: _controllerCep,
+            keyboardType: TextInputType.number,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "Cep",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite o cep",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
+            controller: _controllerLogradouro,
+            keyboardType: TextInputType.text,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "Logradouro",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite o logradouro",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
+            controller: _controllerBairro,
+            keyboardType: TextInputType.text,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "Bairro",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite o Bairro",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
+            controller: _controllerNumero,
+            keyboardType: TextInputType.text,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "Número",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite o Número",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
+            controller: _controllerUf,
+            keyboardType: TextInputType.text,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "Uf",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite o uf",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
+            controller: _controllerTelefone,
+            keyboardType: TextInputType.number,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "Telefone",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite o Telefone",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
           Padding(
             padding: EdgeInsets.only(top: 16),
             child: Center(
@@ -369,5 +475,8 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
       ),
     );
   }
+
 }
+
+
 
