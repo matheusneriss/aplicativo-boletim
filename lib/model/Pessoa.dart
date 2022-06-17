@@ -14,11 +14,9 @@ class Pessoa{
   String _naturalidade = "";
   String _profissao = "";
   String _ufrg = "";
-  String _cnh = "";
   String _numcnh = "";
   String _catcnh = "";
   String _examecnh = "";
-  String _numregistro = "";
   String _telefone = "";
   String _celular = "";
   String _municipio = "";
@@ -50,11 +48,9 @@ class Pessoa{
       "Naturalidade" : this.naturalidade,
       "Profissao" : this.profissao,
       "Uf do rg" : this.ufrg,
-      "CNH" : this.cnh,
-      "Número da cnh" : this.numcnh,
+      "CNH" : this.numcnh,
       "Categoria da cnh" : this.catcnh,
       "Exame CNH" : this.examecnh,
-      "Número de registro" : this.numregistro,
       "Telefone" : this.telefone,
       "Celular" : this.celular,
       "Municipio" : this.municipio,
@@ -89,12 +85,6 @@ class Pessoa{
     _telefone = value;
   }
 
-  String get numregistro => _numregistro;
-
-  set numregistro(String value) {
-    _numregistro = value;
-  }
-
   String get examecnh => _examecnh;
 
   set examecnh(String value) {
@@ -111,12 +101,6 @@ class Pessoa{
 
   set numcnh(String value) {
     _numcnh = value;
-  }
-
-  String get cnh => _cnh;
-
-  set cnh(String value) {
-    _cnh = value;
   }
 
   String get ufrg => _ufrg;

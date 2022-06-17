@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import '../model/Viatura.dart';
+import '../model/Pessoa.dart';
 
 class CadastroPessoa extends StatefulWidget {
   @override
@@ -81,11 +81,106 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
       type: MaskAutoCompletionType.lazy
   );
 
+  _validarCampos(){
+    //recuperar dados dos campos
+    String datanascimento = _controllerDatanascimento.text;
+    String cor = _controllerCor.text;
+    String nome = _controllerNome.text;
+    String logradouro = _controllerLogradouro.text;
+    String bairro = _controllerBairro.text;
+    String numero = _controllerNumero.text;
+    String cep = _controllerCep.text;
+    String rg = _controllerRg.text;
+    String cpf = _controllerCpf.text;
+    String uf = _controllerUf.text;
+    String nomepai = _controllerNomedopai.text;
+    String nomemae = _controllerNomedamae.text;
+    String naturalidade = _controllerNaturalidade.text;
+    String profissao = _controllerProfissao.text;
+    String ufrg = _controllerUfrg.text;
+    String numcnh = _controllerNumcnh.text;
+    String catcnh = _controllerCatcnh.text;
+    String examecnh = _controllerExamecnh.text;
+    String telefone = _controllerTelefone.text;
+    String celular = _controllerCelular.text;
+    String municipio = _controllerMunicipio.text;
+    String estadonascimento = _controllerEstadoNascimento.text;
 
-  _cadastrarPessoa(Viatura viatura){
+    bool isValidDate(String datanascimento) {
+      try {
+        DateTime.parse(datanascimento);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    if(datanascimento.isNotEmpty && !isValidDate(datanascimento)){
+      if(cor.isNotEmpty){
+        if(nome.isNotEmpty){
+          if(logradouro.isNotEmpty){
+            setState((){
+              _mensagemErro = "";
+            });
+
+            Pessoa pessoa = Pessoa();
+            pessoa.datadenasicmento = datanascimento;
+            pessoa.cor = cor;
+            pessoa.nome = nome;
+            pessoa.logradouro = logradouro;
+            pessoa.bairro = bairro;
+            pessoa.numero = numero;
+            pessoa.cep = cep;
+            pessoa.rg = rg;
+            pessoa.cpf = cpf;
+            pessoa.Uf = uf;
+            pessoa.nomedopai = nomepai;
+            pessoa.nomedamae = nomemae;
+            pessoa.naturalidade = naturalidade;
+            pessoa.profissao = profissao;
+            pessoa.ufrg = ufrg;
+            pessoa.numcnh = numcnh;
+            pessoa.catcnh = catcnh;
+            pessoa.examecnh = examecnh;
+            pessoa.telefone = telefone;
+            pessoa.celular = celular;
+            pessoa.municipio = municipio;
+            pessoa.estadoNascimento = estadonascimento;
+            _cadastrarPessoa(pessoa);
+          }else{
+
+            setState((){
+              _mensagemErro = "Preencha o campo Logradouro";
+            });
+
+          }
+
+        }else{
+          setState((){
+            _mensagemErro = "Preencha o campo Nome";
+          });
+
+        }
+
+      }else{
+        setState((){
+          _mensagemErro = "Preencha o campo cor";
+        });
+
+      }
+
+    }else{
+      setState((){
+        _mensagemErro = "Preencha o campo e verifique se a data é valida";
+      });
+    }
+  }
+
+
+  _cadastrarPessoa(Pessoa pessoa){
     FirebaseFirestore db = FirebaseFirestore.instance;
-    db.collection("Viaturas")
-        .add(viatura.toMap());
+    db.collection("Pessoas")
+        .add(pessoa.toMap());
   }
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -105,7 +200,7 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
         backgroundColor: Color(0xFF092757),
         actions: [
           IconButton(onPressed: (){
-            // _validarCampos();
+            _validarCampos();
             showDialog(
                 context: context,
                 builder: (BuildContext context) {
