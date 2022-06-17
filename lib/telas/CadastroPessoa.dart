@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import '../model/Viatura.dart';
 
 class CadastroPessoa extends StatefulWidget {
@@ -42,6 +43,44 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
   TextEditingController _controllerMunicipio = TextEditingController();
   TextEditingController _controllerEstadoNascimento = TextEditingController();
   String _mensagemErro = "";
+
+  var maskCellphone= new MaskTextInputFormatter(
+      mask: '(##) #####-####',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
+
+  var maskCPF= new MaskTextInputFormatter(
+      mask: '###.###.###-##',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
+
+  var maskTelefone= new MaskTextInputFormatter(
+      mask: '(##) ####-####',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
+
+  var maskRG= new MaskTextInputFormatter(
+      mask: '###.###.###-#',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
+
+  var maskCep= new MaskTextInputFormatter(
+      mask: '#####-###',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
+
+
+  var maskDataNascimento= new MaskTextInputFormatter(
+      mask: '##/##/####',
+      filter: { "#": RegExp(r'[0-9]') },
+      type: MaskAutoCompletionType.lazy
+  );
+
 
   _cadastrarPessoa(Viatura viatura){
     FirebaseFirestore db = FirebaseFirestore.instance;
@@ -144,6 +183,7 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             ),
           ),
           TextFormField(
+            inputFormatters: [maskCPF],
             controller: _controllerCpf,
             keyboardType: TextInputType.number,
             style: TextStyle(
@@ -164,6 +204,7 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             ),
           ),
           TextFormField(
+            inputFormatters: [maskRG],
             controller: _controllerRg,
             keyboardType: TextInputType.number,
             style: TextStyle(
@@ -283,6 +324,7 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             ),
           ),
           TextFormField(
+            inputFormatters: [maskDataNascimento],
             controller: _controllerDatanascimento,
             keyboardType: TextInputType.datetime,
             style: TextStyle(
@@ -423,6 +465,7 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             ),
           ),
           TextFormField(
+            inputFormatters: [maskCep],
             controller: _controllerCep,
             keyboardType: TextInputType.number,
             style: TextStyle(
@@ -523,6 +566,7 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             ),
           ),
           TextFormField(
+            inputFormatters: [maskTelefone],
             controller: _controllerTelefone,
             keyboardType: TextInputType.number,
             style: TextStyle(
@@ -543,6 +587,7 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             ),
           ),
           TextFormField(
+            inputFormatters: [maskCellphone],
             controller: _controllerCelular,
             keyboardType: TextInputType.number,
             style: TextStyle(
