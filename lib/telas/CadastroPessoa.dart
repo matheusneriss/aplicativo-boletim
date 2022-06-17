@@ -263,6 +263,26 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
             ),
           ),
           TextFormField(
+            controller: _controllerCor,
+            keyboardType: TextInputType.text,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "Cor",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite a cor",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
             controller: _controllerDatanascimento,
             keyboardType: TextInputType.datetime,
             style: TextStyle(
@@ -276,6 +296,46 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
                 fontSize: 18,
               ),
               hintText: "Digite a data de nascimento",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
+            controller: _controllerEstadoNascimento,
+            keyboardType: TextInputType.text,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "Estado de nascimento",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite o estado de nascimento",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
+            controller: _controllerMunicipio,
+            keyboardType: TextInputType.text,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "Município",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite o município",
               hintStyle: TextStyle(
                 color: Colors.black,
                 fontSize: 18,
@@ -336,6 +396,26 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
                 fontSize: 18,
               ),
               hintText: "Digite a naturalidade",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
+            controller: _controllerProfissao,
+            keyboardType: TextInputType.text,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "Profissão",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite a profissão",
               hintStyle: TextStyle(
                 color: Colors.black,
                 fontSize: 18,
@@ -456,6 +536,26 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
                 fontSize: 18,
               ),
               hintText: "Digite o Telefone",
+              hintStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          TextFormField(
+            controller: _controllerCelular,
+            keyboardType: TextInputType.number,
+            style: TextStyle(
+              color: Color(0xFF092757),
+              fontSize: 18,
+            ),
+            decoration: InputDecoration(
+              labelText: "Celular",
+              labelStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+              hintText: "Digite o Celular",
               hintStyle: TextStyle(
                 color: Colors.black,
                 fontSize: 18,
