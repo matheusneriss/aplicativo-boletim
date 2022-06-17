@@ -180,7 +180,9 @@ class _CadastroPessoaState extends State<CadastroPessoa> {
   _cadastrarPessoa(Pessoa pessoa){
     FirebaseFirestore db = FirebaseFirestore.instance;
     db.collection("Pessoas")
-        .add(pessoa.toMap());
+        .doc(pessoa.cpf)
+        .set(pessoa.toMap());
+
   }
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
