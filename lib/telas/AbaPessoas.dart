@@ -21,7 +21,25 @@ class _AbaPessoasState extends State<AbaPessoas> {
     for (DocumentSnapshot item in querySnapshot.docs) {
       var dados = item.data() as Map<String, dynamic>;
       Pessoa pessoa = Pessoa();
+      pessoa.datadenasicmento = dados["Data de nascimento"];
+      pessoa.cor = dados["Cor"];
+      pessoa.logradouro = dados["Logradouro"];
+      pessoa.bairro = dados["Bairro"];
+      pessoa.numero = dados["Numero"];
+      pessoa.celular = dados["Celular"];
+      pessoa.nomedopai = dados["Nome do pai"];
+      pessoa.nomedamae = dados["Nome da mãe"];
+      pessoa.cep = dados["Cep"];
+      pessoa.profissao = dados["Profissao"];
+      pessoa.ufrg = dados["Uf do rg"];
+      pessoa.numcnh = dados["CNH"];
+      pessoa.catcnh = dados["Categoria da cnh"];
+      pessoa.examecnh = dados["Exame CNH"];
       pessoa.nome = dados["Nome"];
+      pessoa.estadoNascimento = dados["Estado de Nascimento"];
+      pessoa.municipio = dados["Municipio"];
+      pessoa.naturalidade = dados["Naturalidade"];
+      pessoa.Uf = dados["Uf"];
       pessoa.cpf = dados["CPF"];
       pessoa.rg = dados["RG"];
       pessoa.telefone = dados["Telefone"];
