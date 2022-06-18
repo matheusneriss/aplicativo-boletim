@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gcm_app/telas/AbaPessoas.dart';
-import 'AbaViaturas.dart';
 
 class Pessoaslistagem extends StatefulWidget {
   const Pessoaslistagem({Key? key}) : super(key: key);
@@ -18,7 +17,6 @@ class _PessoaslistagemState extends State<Pessoaslistagem> {
     setState((){
       searchEnabled = !searchEnabled;
     }
-
     );
   }
   @override

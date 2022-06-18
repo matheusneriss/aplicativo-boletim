@@ -49,7 +49,7 @@ class _AbaPessoasState extends State<AbaPessoas> {
                 Pessoa pessoa = listaItens[index];
                 return GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, "/dadosviaturas",
+                    Navigator.pushNamed(context, "/dadospessoas",
                         arguments: pessoa);
                   },
                   child: Card(
