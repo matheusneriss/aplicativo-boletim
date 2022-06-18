@@ -4,11 +4,13 @@ import 'package:gcm_app/telas/CadastroPessoa.dart';
 import 'package:gcm_app/telas/CadastroViatura.dart';
 import 'package:gcm_app/telas/DadosGuardas.dart';
 import 'package:gcm_app/telas/DadosPessoas.dart';
+import 'package:gcm_app/telas/DadosPessoasVG.dart';
 import 'package:gcm_app/telas/DadosViaturas.dart';
 import 'package:gcm_app/telas/DadosViaturasVG.dart';
 import 'package:gcm_app/telas/ListagemGuardas.dart';
 import 'package:gcm_app/telas/ListagemGuardasVG.dart';
 import 'package:gcm_app/telas/ListagemPessoas.dart';
+import 'package:gcm_app/telas/ListagemPessoasVG.dart';
 import 'package:gcm_app/telas/ListagemViaturas.dart';
 import 'package:gcm_app/telas/ListagemViaturasVG.dart';
 import 'package:gcm_app/telas/MeusDados.dart';
@@ -48,6 +50,8 @@ class Rotas {
         return MaterialPageRoute(builder: (_) => DadosViaturasVG(args));
       case "/dadospessoas":
         return MaterialPageRoute(builder: (_) => DadosPessoas(args));
+      case "/dadospessoasVG":
+        return MaterialPageRoute(builder: (_) => DadosPessoasVG(args));
       case "/listagemviaturas":
         return MaterialPageRoute(builder: (_) => Viaturaslistagem());
       case "/listagemviaturasVG":
@@ -56,6 +60,8 @@ class Rotas {
         return MaterialPageRoute(builder: (_) => GuardaslistagemVG());
       case "/listagempessoas":
         return MaterialPageRoute(builder: (_) => Pessoaslistagem());
+      case "/listagempessoasVG":
+        return MaterialPageRoute(builder: (_) => PessoaslistagemVG());
       case "/cadastropessoa":
         return MaterialPageRoute(builder: (_) => CadastroPessoa());
       case "/dadosguardasVg":

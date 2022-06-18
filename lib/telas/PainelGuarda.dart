@@ -126,7 +126,7 @@ class _PainelGuardaState extends State<PainelGuarda> {
                 title: new Text("Consultar pessoas"),
                 leading: Icon(Icons.list_rounded),
                 onTap: () {
-                  Navigator.pushNamed(context, "/listagempessoas");
+                  Navigator.pushNamed(context, "/listagempessoasVG");
                 },
               ),
               new ListTile(
