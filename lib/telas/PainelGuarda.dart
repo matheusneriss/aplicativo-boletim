@@ -133,7 +133,7 @@ class _PainelGuardaState extends State<PainelGuarda> {
                 title: new Text("Cadastrar boletim"),
                 leading: Icon(Icons.add_alert_outlined),
                 onTap: () {
-                  Navigator.pushNamed(context, "/meusdados");
+                  Navigator.pushNamed(context, "/cadastroboletim");
                 },
               ),
               new ListTile(
