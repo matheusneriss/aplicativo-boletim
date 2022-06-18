@@ -5,10 +5,12 @@ import 'package:gcm_app/telas/CadastroViatura.dart';
 import 'package:gcm_app/telas/DadosGuardas.dart';
 import 'package:gcm_app/telas/DadosPessoas.dart';
 import 'package:gcm_app/telas/DadosViaturas.dart';
+import 'package:gcm_app/telas/DadosViaturasVG.dart';
 import 'package:gcm_app/telas/ListagemGuardas.dart';
 import 'package:gcm_app/telas/ListagemGuardasVG.dart';
 import 'package:gcm_app/telas/ListagemPessoas.dart';
 import 'package:gcm_app/telas/ListagemViaturas.dart';
+import 'package:gcm_app/telas/ListagemViaturasVG.dart';
 import 'package:gcm_app/telas/MeusDados.dart';
 import 'package:gcm_app/telas/PainelComandante.dart';
 import 'package:gcm_app/telas/PainelGuarda.dart';
@@ -42,10 +44,14 @@ class Rotas {
         return MaterialPageRoute(builder: (_) => DadosGuardas(args));
       case "/dadosviaturas":
         return MaterialPageRoute(builder: (_) => DadosViaturas(args));
+      case "/dadosviaturasVG":
+        return MaterialPageRoute(builder: (_) => DadosViaturasVG(args));
       case "/dadospessoas":
         return MaterialPageRoute(builder: (_) => DadosPessoas(args));
       case "/listagemviaturas":
         return MaterialPageRoute(builder: (_) => Viaturaslistagem());
+      case "/listagemviaturasVG":
+        return MaterialPageRoute(builder: (_) => ViaturaslistagemVG());
       case "/abaguardasvg":
         return MaterialPageRoute(builder: (_) => GuardaslistagemVG());
       case "/listagempessoas":

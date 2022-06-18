@@ -154,7 +154,7 @@ class _PainelGuardaState extends State<PainelGuarda> {
                 title: new Text("Listagem das Viaturas"),
                 leading: Icon(Icons.policy_rounded),
                 onTap: () {
-                  Navigator.pushNamed(context, "/listagemviaturas");
+                  Navigator.pushNamed(context, "/listagemviaturasVG");
                 },
               ),
               Divider(
