@@ -143,13 +143,13 @@ class _PainelGuardaState extends State<PainelGuarda> {
                   Navigator.pushNamed(context, "/meusdados");
                 },
               ),
-              new ListTile(
-                title: new Text("Cadastrar Viaturas"),
-                leading: Icon(Icons.car_rental),
-                onTap: () {
-                  Navigator.pushNamed(context, "/cadastroviatura");
-                },
-              ),
+              // new ListTile(
+              //   title: new Text("Cadastrar Viaturas"),
+              //   leading: Icon(Icons.car_rental),
+              //   onTap: () {
+              //     Navigator.pushNamed(context, "/cadastroviatura");
+              //   },
+              // ),
               new ListTile(
                 title: new Text("Listagem das Viaturas"),
                 leading: Icon(Icons.policy_rounded),
