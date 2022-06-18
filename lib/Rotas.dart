@@ -6,6 +6,7 @@ import 'package:gcm_app/telas/DadosGuardas.dart';
 import 'package:gcm_app/telas/DadosPessoas.dart';
 import 'package:gcm_app/telas/DadosViaturas.dart';
 import 'package:gcm_app/telas/ListagemGuardas.dart';
+import 'package:gcm_app/telas/ListagemGuardasVG.dart';
 import 'package:gcm_app/telas/ListagemPessoas.dart';
 import 'package:gcm_app/telas/ListagemViaturas.dart';
 import 'package:gcm_app/telas/MeusDados.dart';
@@ -13,6 +14,7 @@ import 'package:gcm_app/telas/PainelComandante.dart';
 import 'package:gcm_app/telas/PainelGuarda.dart';
 import 'package:gcm_app/telas/Home.dart';
 import 'package:gcm_app/telas/Recuperar_senha.dart';
+import 'package:gcm_app/telas/dados_guardas_visao_guarda.dart';
 
 class Rotas {
   static Route<dynamic>? gerarRotas(RouteSettings settings) {
@@ -44,10 +46,14 @@ class Rotas {
         return MaterialPageRoute(builder: (_) => DadosPessoas(args));
       case "/listagemviaturas":
         return MaterialPageRoute(builder: (_) => Viaturaslistagem());
+      case "/abaguardasvg":
+        return MaterialPageRoute(builder: (_) => GuardaslistagemVG());
       case "/listagempessoas":
         return MaterialPageRoute(builder: (_) => Pessoaslistagem());
       case "/cadastropessoa":
         return MaterialPageRoute(builder: (_) => CadastroPessoa());
+      case "/dadosguardasVg":
+        return MaterialPageRoute(builder: (_) => DadosGuardasVG(args));
 
       default:
         _erroRota();
