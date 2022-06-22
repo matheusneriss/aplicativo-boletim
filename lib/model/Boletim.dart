@@ -67,8 +67,72 @@ class Boletim{
 
   Boletim();
 
+  Map<String, dynamic> toMap() {
+    Map<String, dynamic> map = {
+      "Número do BO": this._numbo,
+      "Número da folha": this._numfolha,
+      "Hora comunicação": this._hora_com,
+      "hora do fato": this._hora_fat,
+      "hora no local": this._hora_log,
+      "data do fato": this._data_fat,
+      "hpra de chegada no hospital": this._hora_hosp_ch,
+      "hora de saida no hospital": this._hora_hosp_sai,
+      "hora de apresentação": this._hora_apre,
+      "hora de termino": this._hora_ter,
+      "codigo da natureza ": this._cod_nat,
+      "Natureza": this._nat,
+      "Data de comunicacao": this._data_com,
+      "Vitima": this._vitima_pessoa,
+      "Verção pessoa": this._versaopessoa,
+      "Caracteristica local": this._carac_loc,
+      "Iluminação do localização": this._iluminacao_loc,
+      "Tempo no local": this._temp_loc,
+      "Semafaro acidente": this._semafaro_acidente,
+      "Celular": this._for_sinal_visivel,
+      "Municipio": this._cond_pista,
+      "Numero veiculo 1": this._num_veiculo_1,
+      "Numero veiculo 2": this._num_veiculo_2,
+      "Placa veiculo 1": this._placa_veic_1,
+      "Placa veiculo 2": this._placa_veic_2,
+      "Renavan veiculo 1": this._renavan_vec_1,
+      "Proprietario veiculo 1": this._prop_veic_1,
+      "Proprietario veiculo 2": this._prop_veic_2,
+      "Endereco carro 1": this._end_car_1,
+      "Endereco carro 2": this._end_car_2,
+      "Municipio carro 1": this._mun_car_1,
+      "Municipio carro 2": this._mun_car_2,
+      "Uf carro 1": this._uf_car_1,
+      "Uf carro 2": this._uf_car_2,
+      "Renavan veiculo 2": this._renavan_vec_2,
+      "Chassi carro 1": this._chassi_car_1,
+      "Chassi carro 2": this._chassi_car_2,
+      "Especie tipo carro 1": this._especie_tipo_car_1,
+      "Especie tipo carro 2": this._especie_tipo_car_2,
+      "Quantidade passageiros no carro 1": this._qtde_pass_car_1,
+      "Quantidade passageiros no carro 2": this._qtde_pass_car_2,
+      "Marca carro 1": this._marca_car_1,
+      "Marca carro 2": this._marca_car_2,
+      "Ano de fabricacao veiculo 2": this._ano_fab_1,
+      "Ano de fabricacao veiculo 2": this._ano_fab_2,
+      "Categoria carrro 1": this._categ_car_1,
+      "Categoria carrro 2" : this._categ_car_2,
+      "Cor do carro 2": this._cor_car_1,
+      "Cor do carro 2": this._cor_car_2,
+      "Danos carro 2": this._danos_car_1,
+      "Danos carro 2": this._danos_car_2,
+      "Ponto de imapacto veiculo 2 ": this._pont_impac_1,
+      "Ponto de imapacto veiculo 2 ": this._pont_impac_2,
+      "Relatorio guarda": this._rel_gdc,
+      "Km viatura inicial": this._km_viatura_inicial,
+      "Km viatura final": this._km_viatura_final,
+      "Km rodado": this._km_rodado,
+      "Assinatura chege imediato": this._assinatura_chefe_imediato,
+      "Excluido": false,
+    };
+    return map;
+  }
 
-  String get assinatura_chefe_imediato => _assinatura_chefe_imediato;
+    String get assinatura_chefe_imediato => _assinatura_chefe_imediato;
 
   set assinatura_chefe_imediato(String value) {
     _assinatura_chefe_imediato = value;

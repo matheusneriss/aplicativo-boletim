@@ -63,7 +63,7 @@ class _PainelGuardaState extends State<PainelGuarda> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Painel Comandante"),
+        title: Text("Painel Guarda"),
         backgroundColor: Color(0xFF092757),
         actions: [
           PopupMenuButton<String>(
@@ -173,24 +173,16 @@ class _PainelGuardaState extends State<PainelGuarda> {
       ),
       body:  Container(
         padding: EdgeInsets.all(10.0),
+
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Card(
-                color: Color(0xFF092757),
-                child: Container(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
-                    children: <Widget>[
-                      Image.network(
-                          "https://www.ubatuba.sp.gov.br/wp-content/uploads/sites/2/2021/02/Viatura-GCM-2-770x433.jpeg"),
-                      Divider(),
-
-                      Text('Total de viaturas: ' + '',
-                        style: TextStyle(color: Colors.white,fontSize: 20),
-                      )
-                    ],
-                  ),
+              Center(
+                child: Image.asset(
+                  "imagens/logo.png",
+                  width: 300,
+                  height: 300,
                 ),
               ),
             ],
