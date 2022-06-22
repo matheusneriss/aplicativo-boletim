@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:gcm_app/model/Boletim.dart';
 
-class AbaBoletinsAprovados extends StatefulWidget {
-  const AbaBoletinsAprovados({Key? key}) : super(key: key);
+class AbaBoletinsReprovados extends StatefulWidget {
+  const AbaBoletinsReprovados({Key? key}) : super(key: key);
   @override
-  _AbaBoletinsAprovadosState createState() => _AbaBoletinsAprovadosState();
+  _AbaBoletinsReprovadosState createState() => _AbaBoletinsReprovadosState();
 }
 
-class _AbaBoletinsAprovadosState extends State<AbaBoletinsAprovados> {
+class _AbaBoletinsReprovadosState extends State<AbaBoletinsReprovados> {
   Future<List<Boletim>> _recuperarContatos() async {
     FirebaseFirestore database = FirebaseFirestore.instance;
     QuerySnapshot querySnapshot = await database.collection("Boletim")
-        .where('Status', isEqualTo: "Aprovado").get();
+        .where('Status', isEqualTo: "Reprovado").get();
 
     List<Boletim> _listaUsuarios = [];
 

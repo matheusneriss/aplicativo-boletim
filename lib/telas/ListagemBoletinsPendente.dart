@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'AbaBoletinsAprovados.dart';
+import 'AbaBoletinsPendentes.dart';
 
-class Boletinslistagem extends StatefulWidget {
-  const Boletinslistagem({Key? key}) : super(key: key);
+class BoletinslistagemPendente extends StatefulWidget {
+  const BoletinslistagemPendente({Key? key}) : super(key: key);
 
   @override
-  State<Boletinslistagem> createState() => _BoletinslistagemState();
+  State<BoletinslistagemPendente> createState() => _BoletinslistagemPendenteState();
 }
 
-class _BoletinslistagemState extends State<Boletinslistagem> {
-  String Title = "Boletins aprovados";
+class _BoletinslistagemPendenteState extends State<BoletinslistagemPendente> {
+  String Title = "Boletins Pendentes";
   bool  searchEnabled = false;
   TextEditingController _pesquisa = TextEditingController();
 
@@ -48,7 +48,7 @@ class _BoletinslistagemState extends State<Boletinslistagem> {
         ],
       ),
       body: Container(
-          child:AbaBoletinsAprovados()
+          child:AbaBoletinsPendentes()
       ),
     );
   }

@@ -9,6 +9,8 @@ import 'package:gcm_app/telas/DadosPessoasVG.dart';
 import 'package:gcm_app/telas/DadosViaturas.dart';
 import 'package:gcm_app/telas/DadosViaturasVG.dart';
 import 'package:gcm_app/telas/ListagemBoletins.dart';
+import 'package:gcm_app/telas/ListagemBoletinsPendente.dart';
+import 'package:gcm_app/telas/ListagemBoletinsReprovados.dart';
 import 'package:gcm_app/telas/ListagemGuardas.dart';
 import 'package:gcm_app/telas/ListagemGuardasVG.dart';
 import 'package:gcm_app/telas/ListagemPessoas.dart';
@@ -64,6 +66,10 @@ class Rotas {
         return MaterialPageRoute(builder: (_) => Pessoaslistagem());
       case "/listagensboletinsaprovados":
         return MaterialPageRoute(builder: (_) => Boletinslistagem());
+      case "/listagensboletinsreprovados":
+        return MaterialPageRoute(builder: (_) => BoletinslistagemReprovados());
+      case "/listagensboletinspendentes":
+        return MaterialPageRoute(builder: (_) => BoletinslistagemPendente());
       case "/listagempessoasVG":
         return MaterialPageRoute(builder: (_) => PessoaslistagemVG());
       case "/cadastropessoa":

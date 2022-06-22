@@ -137,10 +137,24 @@ class _PainelGuardaState extends State<PainelGuarda> {
                 },
               ),
               new ListTile(
-                title: new Text("Consultar boletins"),
+                title: new Text("Boletins Aprovados"),
                 leading: Icon(Icons.list_alt_outlined),
                 onTap: () {
                   Navigator.pushNamed(context, "/listagensboletinsaprovados");
+                },
+              ),
+              new ListTile(
+                title: new Text("Boletins Pendentes"),
+                leading: Icon(Icons.list_alt_outlined),
+                onTap: () {
+                  Navigator.pushNamed(context, "/listagensboletinspendentes");
+                },
+              ),
+              new ListTile(
+                title: new Text("Boletins Reprovados"),
+                leading: Icon(Icons.list_alt_outlined),
+                onTap: () {
+                  Navigator.pushNamed(context, "/listagensboletinsreprovados");
                 },
               ),
               // new ListTile(
