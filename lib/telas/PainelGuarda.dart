@@ -140,7 +140,7 @@ class _PainelGuardaState extends State<PainelGuarda> {
                 title: new Text("Consultar boletins"),
                 leading: Icon(Icons.list_alt_outlined),
                 onTap: () {
-                  Navigator.pushNamed(context, "/meusdados");
+                  Navigator.pushNamed(context, "/listagensboletinsaprovados");
                 },
               ),
               // new ListTile(

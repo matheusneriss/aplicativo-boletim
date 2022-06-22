@@ -58,6 +58,7 @@ class Boletim{
   String _km_rodado = "";
   String _assinatura_chefe_imediato = "";
   String _excluido = "";
+  String _status = "";
 
   String get excluido => _excluido;
 
@@ -65,12 +66,16 @@ class Boletim{
     _excluido = value;
   }
 
+  String get status => _excluido;
+
+  set status(String value) {
+    _excluido = value;
+  }
   Boletim();
 
   Map<String, dynamic> toMap() {
     Map<String, dynamic> map = {
       "Número do BO": this._numbo,
-      "Número da folha": this._numfolha,
       "Hora comunicação": this._hora_com,
       "hora do fato": this._hora_fat,
       "hora no local": this._hora_log,
@@ -128,6 +133,7 @@ class Boletim{
       "Km rodado": this._km_rodado,
       "Assinatura chege imediato": this._assinatura_chefe_imediato,
       "Excluido": false,
+      "Status": "Pendente aprovação",
     };
     return map;
   }
